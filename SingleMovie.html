@@ -20,7 +20,81 @@
   <link rel="stylesheet" href="assets/theme/css/style.css">
   <link rel="stylesheet" href="assets/mobirise/css/mbr-additional.css" type="text/css">
   
+  <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="js/main.js"></script>
   
+  <script type="text/javascript">
+	
+	$(document).ready(function () {
+  var navListItems = $('div.setup-panel div a'),
+          allWells = $('.setup-content'),
+          allNextBtn = $('.nextBtn'),
+  		  allPrevBtn = $('.prevBtn');
+
+  allWells.hide();
+
+  navListItems.click(function (e) {
+      e.preventDefault();
+      var $target = $($(this).attr('href')),
+              $item = $(this);
+
+      if (!$item.hasClass('disabled')) {
+          navListItems.removeClass('btn-primary').addClass('btn-default');
+          $item.addClass('btn-primary');
+          allWells.hide();
+          $target.show();
+          $target.find('input:eq(0)').focus();
+      }
+  });
+  
+  allPrevBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+
+          prevStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  allNextBtn.click(function(){
+      var curStep = $(this).closest(".setup-content"),
+          curStepBtn = curStep.attr("id"),
+          nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+          curInputs = curStep.find("input[type='text'],input[type='url']"),
+          isValid = true;
+
+      $(".form-group").removeClass("has-error");
+      for(var i=0; i<curInputs.length; i++){
+          if (!curInputs[i].validity.valid){
+              isValid = false;
+              $(curInputs[i]).closest(".form-group").addClass("has-error");
+          }
+      }
+
+      if (isValid)
+          nextStepWizard.removeAttr('disabled').trigger('click');
+  });
+
+  $('div.setup-panel div a.btn-primary').trigger('click');
+});
+	
+	</script>
   
 </head>
 <body>
@@ -58,18 +132,553 @@
                          Create<br>Screening</a>
                 </li><li class="nav-item"><a class="nav-link link text-black display-7" href="Cinema.html">
                          Cinema</a></li></ul>
-            <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-secondary display-7" href="#top"><span class="mbrib-key mbr-iconfont mbr-iconfont-btn"></span>
+           <div class="navbar-buttons mbr-section-btn"><a class="btn btn-sm btn-secondary display-7" href="#myModal" data-toggle="modal"><span class="mbrib-key mbr-iconfont mbr-iconfont-btn"></span>
                     Login/<br>Register<br></a></div>
         </div>
     </nav>
 </section>
 
-<section class="engine"><a href="https://mobirise.co/j">how to design your own website</a></section><section class="header7 cid-qH6CHbiyDL" id="header7-1f">
+<!-- Login Modal -->	
 
-    
+<div class="modal fade" id="myModal" role="dialog">
+								<div class="modal-dialog">
+								  <!-- Modal content-->
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <button type="button" class="close" data-dismiss="modal">&times;</button>
+									</div>
+									<div class="modal-body">
+										<div class="limiter">
+											<div class="container-login100">
+												<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-50">
+													<form class="login100-form validate-form">
+														<span class="login100-form-title p-b-33">
+															Account Login
+														</span>
 
-    
+														<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+															<input class="input100" type="text" name="email" placeholder="Email">
+															<span class="focus-input100-1"></span>
+															<span class="focus-input100-2"></span>
+														</div>
 
+														<div class="wrap-input100 rs1 validate-input" data-validate="Password is required">
+															<input class="input100" type="password" name="pass" placeholder="Password">
+															<span class="focus-input100-1"></span>
+															<span class="focus-input100-2"></span>
+														</div>
+
+														<div class="container-login100-form-btn m-t-20">
+															<button class="login100-form-btn">
+																Sign in
+															</button>
+														</div>
+
+														<div class="text-center p-t-45 p-b-4">
+															<span class="txt1">
+																Forgot
+															</span>
+
+															<a href="#" class="txt2 hov1">
+																Username / Password?
+															</a>
+														</div>
+
+														<div class="text-center">
+															<span class="txt1">
+																Create an account?
+															</span>
+
+															<a href="#" class="txt2 hov1">
+																Sign up
+															</a>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+	
+									    
+									</div>
+									<!--<div class="modal-footer">
+									  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>-->
+								  </div>
+								</div>
+							</div>
+							
+<!-- Booking Modal -->				
+<div class="modal fade" id="bookingModal" role="dialog">
+								<div class="modal-dialog">
+								  <!-- Modal content-->
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <button type="button" class="close" data-dismiss="modal">&times;</button>
+									</div>
+									<div class="modal-body">
+										
+	                                      <div class="container">
+  
+											<div class="stepwizard col-md-offset-3" style="margin-bottom: 15px;">
+												<div class="stepwizard-row setup-panel">
+												  <div class="stepwizard-step">
+													<a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+													<p>Choose Cinema</p>
+												  </div>
+												  <div class="stepwizard-step">
+													<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+													<p>Choose Date</p>
+												  </div>
+												  <div class="stepwizard-step">
+													<a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+													<p>Invite</p>
+												  </div>
+												</div>
+											</div>
+
+												  <form role="form" action="" method="post">
+													<div class="row setup-content" id="step-1">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+
+														  <div class="form-group">
+														   <div class="radio">
+															<label>
+															  <input type="radio" name="optradio">PALACE ifc <a href="http://www.cinema.com.hk/en/cinema/PALACE-ifc" target="_default">Details</a>
+															</label>
+														  </div>
+													<div class="radio">
+															<label>
+															  <input type="radio" name="optradio">AMC Pacific Palace <a href="https://www.amccinemas.com.hk/en/cinema/amc/AMC-Pacific-Place" target="_default">Details</a>
+															</label>
+														  </div>
+													<div class="radio">
+															<label>
+															  <input type="radio" name="optradio">The Grand Cinema <a href="http://www.thegrandcinema.com.hk" target="_default">Details</a>
+															</label>
+														  </div>
+
+														  </div>
+
+
+														  <button class="btn btn-primary nextBtn btn-sm pull-right" type="button">Next</button>
+														</div>
+													  </div>
+													</div>
+													<div class="row setup-content" id="step-2">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+														  <div style="margin-bottom: 20px;">
+															  Select (date and time):
+															  <input type="datetime-local" name="bdaytime">
+
+														  </div>
+														  <button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Previous</button>
+														  <button class="btn btn-primary nextBtn btn-sm pull-right" type="button">Next</button>
+														</div>
+													  </div>
+													</div>
+													<div class="row setup-content" id="step-3">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+														  <h4><b> Who Do you want to Invite?</b></h4>
+														  <br />
+														  <div style="margin-bottom: 20px;">
+															<div>
+																<div style="float: left;">
+																	<h4>Just my friends</h4>
+																	<p>This will be a private screening.<br/>
+																	You need to invite everyone and get the tickets booked.</p>
+																</div>
+																<div style="float: right;">
+																	<button class="btn btn-primary prevBtn btn-sm pull-left" type="button" href="#paymentModal" data-toggle="modal" data-dismiss="modal">Create a<br /> Pvt. Screening</button>
+																</div>
+															</div>
+															<div>
+																<div style="float: left;">
+																	<h4>Everyone</h4>
+																	<p>It will be published on GOGO Cinema<br/>
+																	These screenings are open to everyone.</p>
+																</div>
+																<div style="float: right;">
+																	<button class="btn btn-primary prevBtn btn-sm pull-left" type="button" href="#paymentModal" data-toggle="modal" data-dismiss="modal">Create a<br /> Public Screening</button>
+																</div>
+															</div>
+														  </div>
+														  <div style="clear: both;">
+															  <button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Previous</button>
+															 
+														  </div>
+														</div>
+													  </div>
+													</div>
+												  </form>
+
+									    </div>
+									    
+									</div>
+									
+								  </div>
+								</div>
+							</div>							
+							
+<!-- Payment Modal -->				
+<div class="modal fade" id="paymentModal" role="dialog">
+								<div class="modal-dialog">
+								  <!-- Modal content-->
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <button type="button" class="close" data-dismiss="modal">&times;</button>
+									</div>
+									<div class="modal-body">
+										
+	                                      <!--<div class="container">
+  
+											<div class="stepwizard col-md-offset-3" style="margin-bottom: 15px;">
+												<div class="stepwizard-row setup-panel">
+												  <div class="stepwizard-step">
+													<a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+													<p>Choose Cinema</p>
+												  </div>
+												  <div class="stepwizard-step">
+													<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+													<p>Choose Date</p>
+												  </div>
+												  <div class="stepwizard-step">
+													<a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+													<p>Invite</p>
+												  </div>
+												</div>
+											</div>
+
+												  <form role="form" action="" method="post">
+													<div class="row setup-content" id="step-1">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+
+														  <div class="form-group">
+														   <div class="radio">
+															<label>
+															  <input type="radio" name="optradio">PALACE ifc <a href="http://www.cinema.com.hk/en/cinema/PALACE-ifc" target="_default">Details</a>
+															</label>
+														  </div>
+													<div class="radio">
+															<label>
+															  <input type="radio" name="optradio">AMC Pacific Palace <a href="https://www.amccinemas.com.hk/en/cinema/amc/AMC-Pacific-Place" target="_default">Details</a>
+															</label>
+														  </div>
+													<div class="radio">
+															<label>
+															  <input type="radio" name="optradio">The Grand Cinema <a href="http://www.thegrandcinema.com.hk" target="_default">Details</a>
+															</label>
+														  </div>
+
+														  </div>
+
+
+														  <button class="btn btn-primary nextBtn btn-sm pull-right" type="button">Next</button>
+														</div>
+													  </div>
+													</div>
+													<div class="row setup-content" id="step-2">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+														  <div style="margin-bottom: 20px;">
+															  Select (date and time):
+															  <input type="datetime-local" name="bdaytime">
+
+														  </div>
+														  <button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Previous</button>
+														  <button class="btn btn-primary nextBtn btn-sm pull-right" type="button">Next</button>
+														</div>
+													  </div>
+													</div>
+													<div class="row setup-content" id="step-3">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+														  <h4><b> Who Do you want to Invite?</b></h4>
+														  <br />
+														  <div style="margin-bottom: 20px;">
+															<div>
+																<div style="float: left;">
+																	<h4>Just my friends</h4>
+																	<p>This will be a private screening.<br/>
+																	You need to invite everyone and get the tickets booked.</p>
+																</div>
+																<div style="float: right;">
+																	<button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Create a<br /> Pvt. Screening</button>
+																</div>
+															</div>
+															<div>
+																<div style="float: left;">
+																	<h4>Everyone</h4>
+																	<p>It will be published on GOGO Cinema<br/>
+																	These screenings are open to everyone.</p>
+																</div>
+																<div style="float: right;">
+																	<button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Create a<br /> Public Screening</button>
+																</div>
+															</div>
+														  </div>
+														  <div style="clear: both;">
+															  <button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Previous</button>
+															 
+														  </div>
+														</div>
+													  </div>
+													</div>
+												  </form>
+
+									    </div>-->
+								       <!-- no. of tickets -->
+									       <div class="row justify-content-center">
+            <div> 
+			   <form>
+				<input placeholder="Select No. Of Tickets" type="number" min="1" />
+				<button href="" type="submit" class="btn btn-secondary-outline display-4" data-toggle="collapse" data-target="#payment">Proceed</button>
+			   </form>
+            </div>
+        </div>
+        
+        <div style="clear: both; height: 20px;">&nbsp;</div>
+	<!--Payment-->
+        
+        <div id="payment" class="collapse">
+				<div class="row justify-content-center">
+
+				<div>
+
+               
+				<!-- CREDIT CARD FORM STARTS HERE -->
+				<div class="panel panel-default credit-card-box">
+				<div class="panel-heading display-table" >
+				<!--<div class="row display-tr" >
+				<!--<h3 class="panel-title display-td" >Payment Details</h3>
+				<div class="display-td" >                            
+				<img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+				</div>
+				</div>-->                    
+				</div>
+				<div class="panel-body">
+				<form role="form" id="payment-form">
+				<div class="row">
+				<div class="col-xs-12">
+				<div class="form-group">
+				<label for="cardNumber">CARD NUMBER</label>
+				<div class="input-group">
+				<input 
+				type="tel"
+				class="form-control"
+				name="cardNumber"
+				placeholder="Valid Card Number"
+				autocomplete="cc-number"
+				required autofocus 
+				/>
+				<span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+				</div>
+				</div>                            
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-7 col-md-7">
+				<div class="form-group">
+				<label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+				<input 
+				type="tel" 
+				class="form-control" 
+				name="cardExpiry"
+				placeholder="MM / YY"
+				autocomplete="cc-exp"
+				required 
+				/>
+				</div>
+				</div>
+				<div class="col-xs-5 col-md-5 pull-right">
+				<div class="form-group">
+				<label for="cardCVC">CV CODE</label>
+				<input 
+				type="tel" 
+				class="form-control"
+				name="cardCVC"
+				placeholder="CVC"
+				autocomplete="cc-csc"
+				required
+				/>
+				</div>
+				</div>
+				</div>
+				<div class="row">
+				<div class="col-xs-12">
+				<div class="form-group">
+				<label for="couponCode">COUPON CODE</label>
+				<input type="text" class="form-control" name="couponCode" />
+				</div>
+				</div>                        
+				</div>
+				<div class="row justify-content-center">
+				<div class="col-xs-12">
+				<button class="btn btn-success btn-md btn-block" type="submit" href="#confirmModal" data-toggle="modal" data-dismiss="modal">Make Payment</button>
+				</div>
+				</div>
+				<div class="row" style="display:none;">
+				<div class="col-xs-12">
+				<p class="payment-errors"></p>
+				</div>
+				</div>
+				</form>
+				</div>
+				</div>            
+				<!-- CREDIT CARD FORM ENDS HERE -->
+
+
+				</div>            
+
+
+
+				</div>
+       </div>
+									    
+									</div>
+									
+								  </div>
+								</div>
+							</div>
+													
+<!--Confirmation Modal -->
+<div class="modal fade" id="confirmModal" role="dialog">
+								<div class="modal-dialog">
+								  <!-- Modal content-->
+								  <div class="modal-content">
+									<div class="modal-header">
+									  <button type="button" class="close" data-dismiss="modal">&times;</button>
+									</div>
+									<div class="modal-body">
+										
+	                                      <!--<div class="container">
+  
+											<div class="stepwizard col-md-offset-3" style="margin-bottom: 15px;">
+												<div class="stepwizard-row setup-panel">
+												  <div class="stepwizard-step">
+													<a href="#step-1" type="button" class="btn btn-primary btn-circle">1</a>
+													<p>Choose Cinema</p>
+												  </div>
+												  <div class="stepwizard-step">
+													<a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+													<p>Choose Date</p>
+												  </div>
+												  <div class="stepwizard-step">
+													<a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+													<p>Invite</p>
+												  </div>
+												</div>
+											</div>
+
+												  <form role="form" action="" method="post">
+													<div class="row setup-content" id="step-1">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+
+														  <div class="form-group">
+														   <div class="radio">
+															<label>
+															  <input type="radio" name="optradio">PALACE ifc <a href="http://www.cinema.com.hk/en/cinema/PALACE-ifc" target="_default">Details</a>
+															</label>
+														  </div>
+													<div class="radio">
+															<label>
+															  <input type="radio" name="optradio">AMC Pacific Palace <a href="https://www.amccinemas.com.hk/en/cinema/amc/AMC-Pacific-Place" target="_default">Details</a>
+															</label>
+														  </div>
+													<div class="radio">
+															<label>
+															  <input type="radio" name="optradio">The Grand Cinema <a href="http://www.thegrandcinema.com.hk" target="_default">Details</a>
+															</label>
+														  </div>
+
+														  </div>
+
+
+														  <button class="btn btn-primary nextBtn btn-sm pull-right" type="button">Next</button>
+														</div>
+													  </div>
+													</div>
+													<div class="row setup-content" id="step-2">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+														  <div style="margin-bottom: 20px;">
+															  Select (date and time):
+															  <input type="datetime-local" name="bdaytime">
+
+														  </div>
+														  <button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Previous</button>
+														  <button class="btn btn-primary nextBtn btn-sm pull-right" type="button">Next</button>
+														</div>
+													  </div>
+													</div>
+													<div class="row setup-content" id="step-3">
+													  <div class="col-xs-6 col-md-offset-3">
+														<div class="col-md-12">
+														  <h4><b> Who Do you want to Invite?</b></h4>
+														  <br />
+														  <div style="margin-bottom: 20px;">
+															<div>
+																<div style="float: left;">
+																	<h4>Just my friends</h4>
+																	<p>This will be a private screening.<br/>
+																	You need to invite everyone and get the tickets booked.</p>
+																</div>
+																<div style="float: right;">
+																	<button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Create a<br /> Pvt. Screening</button>
+																</div>
+															</div>
+															<div>
+																<div style="float: left;">
+																	<h4>Everyone</h4>
+																	<p>It will be published on GOGO Cinema<br/>
+																	These screenings are open to everyone.</p>
+																</div>
+																<div style="float: right;">
+																	<button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Create a<br /> Public Screening</button>
+																</div>
+															</div>
+														  </div>
+														  <div style="clear: both;">
+															  <button class="btn btn-primary prevBtn btn-sm pull-left" type="button">Previous</button>
+															 
+														  </div>
+														</div>
+													  </div>
+													</div>
+												  </form>
+
+									    </div>-->
+								       <!-- no. of tickets -->
+									       <div class="row justify-content-center">
+            <div> 
+               <h3>Booking Confirmed!</h3>
+               <br />
+			   <p>35 More Tickets Required By 22nd Jan to Confirm the Screening!</p>
+				<p>HK$ 85/ticket for this Screening.</p>
+				<button href="NowScreening.html" type="submit" class="btn btn-secondary-outline display-4" data-toggle="modal" data-dismiss="modal">Proceed</button>
+			   
+            </div>
+        </div>
+        
+        <div style="clear: both; height: 20px;">&nbsp;</div>
+	<!--Payment-->
+        
+        
+									    
+									</div>
+									
+								  </div>
+								</div>
+							</div>							
+							
+
+<section class="header7 cid-qH6CHbiyDL" id="header7-1f">
+
+ 
     <div class="container">
         <div class="media-container-row">
 
@@ -80,7 +689,7 @@
 <br><strong>Release Date</strong>: 1 July 2016 (India)
 <br><strong>Director</strong>: David Yates</p>
                 </div>
-                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="https://mobirise.com">Create Screening</a>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-secondary display-4" href="#bookingModal" data-toggle="modal">Create Screening</a>
                         <a class="btn btn-md btn-success display-4" href="page2.html#features17-19">Join Screening</a></div>
             </div>
 
@@ -202,7 +811,12 @@
                             AMC Pacific Place</h4>
                         <p class="mbr-text mbr-fonts-style display-7">
                             Sunday 14th Jan 18 at 13:00<br>Need 23<br>3 days to Go</p>
+                            <br />
+                            <center>
+                            <a href="#paymentModal" data-toggle="modal"><button type="button" class="btnNew btn-primary btn-sm">Book Ticket</button></a>
+                            </center>
                     </div>
+                    
                 </div>
             </div>
 
@@ -216,6 +830,10 @@
                             PALACE ifc</h4>
                         <p class="mbr-text mbr-fonts-style display-7">
                             Monday 22nd Jan 18 at 18:00<br>Attending 36, Available 66<br>5 days to Go<br></p>
+                            <br />
+                            <center>
+                            <a href="#paymentModal" data-toggle="modal"><button type="button" class="btnNew btn-primary btn-sm">Book Ticket</button></a>
+                            </center>
                     </div>
                 </div>
             </div>
@@ -230,6 +848,10 @@
                         <p class="mbr-text mbr-fonts-style display-7">Sunday 24th Jan 18 at 13:00
 <br>Need 33
 <br>8 days to Go</p>
+                   <br />
+                            <center>
+                            <a href="#paymentModal" data-toggle="modal"><button type="button" class="btnNew btn-primary btn-sm">Book Ticket</button></a>
+                            </center>
                     </div>
                 </div>
             </div>
@@ -244,6 +866,10 @@
                         <p class="mbr-text mbr-fonts-style display-7">Monday 28th Jan 18 at 18:00
 <br>Attending 26, Available 63
 <br>9 days to Go</p>
+                   <br />
+                            <center>
+                            <a href="#paymentModal" data-toggle="modal"><button type="button" class="btnNew btn-primary btn-sm">Book Ticket</button></a>
+                            </center>
                     </div>
                 </div>
             </div>

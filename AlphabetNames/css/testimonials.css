@@ -1,0 +1,76 @@
+.card {
+  margin: 0 auto;
+}
+
+.card .carousel-item {
+  height: 220px;
+}
+
+.card {
+  background: transparent;
+  border: none;
+}
+
+.sub-title {
+   color: #333333;
+    text-transform:none;
+    font-size: 1.6em;
+    margin-top: 10px;
+	font-family: 'Pacifico', cursive;
+}
+
+.card .carousel-caption {
+  padding: 0;
+  right: 0;
+  left: 0;
+  color: #ff9a06;
+}
+
+.card .carousel-caption h3 {
+  color: #ff9a06;
+  font-size: 1.5em;
+}
+
+.testi-img {
+  background: #fff;
+}
+
+.card .carousel-caption p {
+  margin: 0 auto;
+  color: #333;
+  width: 85%;
+}
+
+.card .carousel-caption .col-sm-3 {
+  display: flex;
+  align-items: center;
+}
+
+.card .carousel-caption .col-sm-9 {
+  text-align: left;
+}
+
+.navi a {
+  text-decoration: none;
+}
+
+a>.ico {
+  padding: 10px;
+
+}
+
+div#testimonials {
+	background-image: url(../images/gpts-bg.jpg);
+	background-repeat: repeat;
+	background-position: left top;
+}
+
+@media screen and (max-width: 736px) {
+
+  .card .carousel-item {
+    height: 270px;
+  }
+  .card .carousel-caption p {
+    width: 100%;
+}
+}

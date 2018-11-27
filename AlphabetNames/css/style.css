@@ -214,25 +214,16 @@ ul.offer li.last{
 
   color: #333;
 
-  font-size: 14px;
-
-  font-weight: 800;}
+ }
 
   
 
 .offer-txt2{
 
-margin-left:5px;
 
-margin-right:5px;
 
   color: #f26d22;
-
-  font-weight: 800;
-
-  font-size: 20px;
-
-  line-height: 0.7em;}
+}
 
 
 
@@ -240,15 +231,11 @@ margin-right:5px;
 
 .offer-txt3{
 
-margin-left:5px;
+
 
   color: #015aa2;
 
-  font-weight: 800;
 
-  font-size: 20px;
-
-  line-height: 0.7em;
 
 }
 
@@ -1430,7 +1417,7 @@ color:#333333;
 
 
 .w3-about{
-
+padding-top: 1.5rem !important;
 background-image: url(../images/gpts-bg.jpg);
 
 	background-repeat: repeat;
@@ -1646,7 +1633,7 @@ form.register-wthree .form-control3{
 
 	min-height: 30px;
 
-	width:50%;}	
+	width:100%;}	
 
 
 
@@ -1671,7 +1658,7 @@ form.register-wthree .form-control4{
 
 	min-height: 200px;
 
-	width:50%;}
+	width:100%;}
 
 	
 
@@ -1705,6 +1692,7 @@ form.register-wthree .form-control5 {
   border: 1px solid #D1D3D4;
   font-weight: normal;
   background-color: #E5E5E5;
+  text-align-last:center;
 }
 
 .funkyradio input[type="radio"]:empty,
@@ -1805,7 +1793,7 @@ form.register-wthree .form-control5 {
 }
 /*Order Form*/
 
-
+.noStyle{}
 
 .abt-pos {
 
@@ -1817,7 +1805,7 @@ form.register-wthree .form-control5 {
 
 	top: 0px;
 
-	padding-top: 4em;
+	padding-top: 5.5em;
 
 	padding-right: 2em;
 
@@ -1870,7 +1858,7 @@ textarea.form-control {
 section.why-sec {
 
     background: #edf3f1;
-
+    padding-top: 3rem !important;
 }
 
 
@@ -3689,7 +3677,7 @@ section.w3_pvt_stats {
 
 	background-position: left top;
 
-	
+	padding-top: 4rem !important;
 
 }
 
@@ -4834,3 +4822,6 @@ padding-top:8em;
 
 
 /* -- //Responsive code -- */
+.offer-txt1 {
+	
+}

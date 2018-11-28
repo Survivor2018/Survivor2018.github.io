@@ -28,7 +28,8 @@ body a {
 
 }
 
-
+.element1 {display:inline-block;margin-right:10px; } 
+.element2 {display:inline-block;} 
 
 h1,
 

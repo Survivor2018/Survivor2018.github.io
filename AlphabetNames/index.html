@@ -549,8 +549,10 @@
 
                 <div class="contact-form">
 
-                <form name="submit-to-google-sheet" class="register-wthree">
-
+                <form name="submit-to-google-sheet" class="register-wthree" >
+					<input type="hidden" id="noNames" name="noNames">
+					<input type="hidden" id="cost" name="cost">
+					<input type="hidden" id="gDriveFldr" name="gDriveFldr">
                     <div class="form-group">
 
                         <div class="row">
@@ -584,14 +586,14 @@
 								
 								<div class="funkyradio">
 									<div class="funkyradio-default">
-										<input type="radio" name="radio" id="radio1" onClick="showDiv('hidDiv1')"/>
+										<input type="radio" name="radio" id="radio1" onClick="setNoNames(1,150); showDiv('hidDiv1');"/>
 										<label for="radio1"><span class="offer-txt1"> Order </span><span class="offer-txt3">1 Name</span> at <span class="offer-txt2">Rs.150/-</span></label>
 										<div id="hidDiv1" style="display: none;">
 										<input class="form-control" type="text" placeholder="Type Your Name" name="1_Name">
 										</div>
 									</div>
 									<div class="funkyradio-primary">
-										<input type="radio" name="radio" id="radio2" onClick="showDiv('hidDiv2')"/>
+										<input type="radio" name="radio" id="radio2" onClick="setNoNames(2,130); showDiv('hidDiv2');"/>
 										<label for="radio2"><span class="offer-txt1">Order </span><span class="offer-txt3">2 Names</span> at <span class="offer-txt2">Rs.130/-</span><span class="offer-txt1">each</span></label>
 										<div id="hidDiv2" style="display: none;">
 										<input class="form-control" type="text" placeholder="Type Your Name" name="2_Name_1">
@@ -599,7 +601,7 @@
 										</div>
 									</div>
 									<div class="funkyradio-success">
-										<input type="radio" name="radio" id="radio3" onClick="showDiv('hidDiv3')"/>
+										<input type="radio" name="radio" id="radio3" onClick="setNoNames(3,115); showDiv('hidDiv3');"/>
 										<label for="radio3"><span class="offer-txt1">Order </span><span class="offer-txt3">3 Names</span> at <span class="offer-txt2">Rs.115/-</span><span class="offer-txt1">each</span></label>
 										<div id="hidDiv3" style="display: none;">
 										<input class="form-control" type="text" placeholder="Type Your Name" name="3_Name_1">
@@ -616,7 +618,7 @@
 								<div class="funkyradio">
 									
 									<div class="funkyradio-danger">
-										<input type="radio" name="radio" id="radio4" onClick="showDiv('hidDiv4')"/>
+										<input type="radio" name="radio" id="radio4" onClick="setNoNames(4,100); showDiv('hidDiv4');"/>
 										<label for="radio4"><span class="offer-txt1">Order </span><span class="offer-txt3">4 Names</span> at <span class="offer-txt2">Rs.100/-</span><span class="offer-txt1">each</span></label>
 										<div id="hidDiv4" style="display: none;">
 										<input class="form-control" type="text" placeholder="Type Your Name" name="4_Name_1">
@@ -641,7 +643,7 @@
 										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_9">
 										<br />-->
 									
-										<select id="dd5_9" class="form-control">
+										<select id="dd5_9" class="form-control" name="dd5_9" onChange="val('dd5_9',90);">
 											<option value="Select">Select No. of Names</option>
 											<option value="5">5</option>
 											<option value="6">6</option>
@@ -649,66 +651,140 @@
 											<option value="8">8</option>
 									    	<option value="9">9</option>
 										</select>
-										<!--<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>	
-										</div>-->
+										<br />	
+										<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Upload File</button>
+											
+										</div>
 									</div>
 									<div class="funkyradio-info">
 										<input type="radio" name="radio" id="radio6" onClick="showDiv('hidDiv6')"/>
 										<label for="radio6"><span class="offer-txt1">Order </span><span class="offer-txt3">10+ Names</span> at <span class="offer-txt2">Rs.80/-</span><span class="offer-txt1">each</span></label>
 										<div id="hidDiv6" style="display: none;">
 										<!--<textarea name="6_Names" class="form-control4" placeholder="Enter Names Seperated by Commas"></textarea>-->
-											<select id="dd10_100" class="dd10_100 form-control">
 											
+											<select id="dd10_100" class="dd10_100 form-control" name="dd10_100" onChange="val('dd10_100',80);">
 										</select>
+											<br />
+											<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Upload File</button>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<button type="submit" id="submit-form" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ordSummary" style="margin-top: 1rem;">Place Order</button>
 						
 						
-						<div class="row">
-							<div class="row mt-3">
-							
-                          <div class="col-md-12 " style="margin-left:30px;">
-							<label class="blk-txt">Delivery Charges will be Rs 20 per Name.</label><br><br>
-                            <button type="submit" id="submit-form" class="btn  btn-block w-80 font-weight-bold text-capitalize bg-theme1 text-white">Place Order</button>
-
-                        </div>
-
-                    	  </div>
-						</div>
                     </div>
-
+					
                 </form>
-					<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+			</div>
+				
+			<div id="ordSummary" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" onClick="refreshPage()">&times;</button>
+						</div>
+						<div class="modal-body">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <!--<h4 class="modal-title">Modal Header</h4>-->
-      </div>
-      <div class="modal-body">
-		  
-        <form action="https://script.google.com/macros/s/AKfycbzp66XUkbQZnJ-5GNIO8vmnRUOkHVhQVqdKIxWjJMuW5HNrGMk/exec" id="form" method="post">
-												<div id="progress"></div>
-												<div id="data"></div>
-												<input name="file" id="uploadfile" type="file">
-												<input id="submit" type="submit">
-											</form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
+							<div class="row">
+							
+						  <label class="blk-txt">Delivery Charges will be Rs 20 per Name.</label><br /><br />
+                          <div class="col-md-6">
+							
+							  
+							  <h3 class="form-control">Sub-Total : </h3>
+							  
+							  <h3 class="form-control">Delivery Charges : </h3>
+							 
+							  <h3 class="form-control">Total : </h3>
+							  
+                            <button type="submit" id="submit" onClick="refreshPage();" class="btn  btn-block w-80 font-weight-bold text-capitalize bg-theme1 text-white" style="margin-top: 1rem;"> Pay </button>
 
-  </div>
-</div>
+                          </div>
+						  <div class="col-md-6">
+							
+							  
+							  <h3 id="value" class="form-control">0.00</h3>
+							  
+							 <h3 id="delPrice" class="form-control">0.00</h3>
+							 
+							  <h3 id="price" class="form-control">0.00</h3>
+							  
+                            
+
+                          </div>
+						  
+
+                    	  
+						</div>
+
+						</div>
+						<div class="modal-footer">
+							<button onClick="refreshPage()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="myModal" class="modal fade" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="modal-body">
+
+							<iframe id="iFrmfileUpload" src="https://script.google.com/macros/s/AKfycbwuHuj-FUyvgikfkjodnAqcNK1AgsRqMGdNw-hHT_fWpzrsBuFX/exec?name=Default" frameborder="0" width="400px" height="400"></iframe>
+
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>		
 				
 					
                 <script>
+					
+					function refreshPage(){
+						alert("Payment Successful!")
+    window.location.reload();
+} 
+					
+					function setURL(){
+						
+						var fldrName = Math.random().toString(36).substr(2, 8);
+						var link = 'https://script.google.com/macros/s/AKfycbwuHuj-FUyvgikfkjodnAqcNK1AgsRqMGdNw-hHT_fWpzrsBuFX/exec?name=' + fldrName;
+						document.getElementById("iFrmfileUpload").src = link;
+						document.getElementById("gDriveFldr").value = fldrName;						
+					}
+					
+					
+				 function val(id,price) {
+					setURL();
+    				setNoNames(document.getElementById(id).value,price);
+    				//alert(d);
+				 	}	
+					
+				function setNoNames(no,val){
+					//alert(val);
+					document.getElementById("noNames").value = no;
+					document.getElementById("cost").value = val;
+					calc();
+					
+				}	
+				
+				function calc(){
+					var value = (document.getElementById("noNames").value * document.getElementById("cost").value);
+					var delPrice = (20 * document.getElementById("noNames").value);
+					
+					document.getElementById("value").innerHTML =  value;
+					document.getElementById("delPrice").innerHTML =  delPrice;
+					document.getElementById("price").innerHTML =  value + delPrice;
+				}
+					
+					
 				  const scriptURL = 'https://script.google.com/macros/s/AKfycbwITY4UPwOxFjGmKzmF7M2q7fn-mst92CKYF7FUhyaGn1R0oK1D/exec'
 				  const form = document.forms['submit-to-google-sheet']
 
@@ -733,8 +809,11 @@
 						x.style.display = "none";
 					}
 				}
-			}
-					$('#uploadfile').on("change", function() {
+			}					
+					
+					/*$('#uploadfile')
+						
+						.on("change", function() {
         var file = this.files[0];
         var fr = new FileReader();
 		var extn = file.name.substring(file.name.indexOf("."));
@@ -748,14 +827,12 @@
         }
         fr.readAsDataURL(file);
 						
-    });
+    });*/
 				</script>
                 
             </div>
 				
           </div>
-
-        </div>
 
         <!--<div class="abt-pos" style="margin-top:100px;">
 
@@ -1642,7 +1719,7 @@
 	$(function(){
     var $select = $(".dd10_100");
 	$select.append($('<option></option>').val("Select").html("Select No. of Names"));
-    for (i=6;i<=100;i++){
+    for (i=10;i<=100;i++){
         $select.append($('<option></option>').val(i).html(i))
     }
 });

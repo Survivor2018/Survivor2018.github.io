@@ -7708,6 +7708,7 @@ button.bg-dark:focus {
 .mr-auto,
 .mx-auto {
   margin-right: auto !important;
+	
 }
 
 .mb-auto,
@@ -8397,7 +8398,7 @@ button.bg-dark:focus {
   }
   .pt-lg-3,
   .py-lg-3 {
-    padding-top: 4rem !important;
+    padding-top: 1rem !important;
   }
   .pr-lg-3,
   .px-lg-3 {
@@ -8435,7 +8436,7 @@ button.bg-dark:focus {
   }
   .pt-lg-5,
   .py-lg-5 {
-    padding-top: 3rem !important;
+    padding-top: 1rem !important;
   }
   .pr-lg-5,
   .px-lg-5 {

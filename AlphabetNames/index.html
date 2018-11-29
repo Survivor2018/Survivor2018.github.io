@@ -242,7 +242,7 @@
 
                                 </label>
 
-                                <input class="form-control" type="text" placeholder=" Type Your Name" name="email" required="" id="myInput" oninput="myFunction()"><br><br>
+                                <input class="form-control" type="text" placeholder=" Type Your Name" name="email" required="" id="myInput" oninput="myFunction();"><br><br>
 
 								<div id="dvPreview"></div>
                             </div>
@@ -561,19 +561,19 @@
 			
                             <div class="col-md-6">
 							
-								<input class="form-control3" type="text" placeholder=" Your Name" name="Customer_Name"><br><br>
+								<input id="Cust_Name" class="form-control3" type="text" placeholder=" Your Name" name="Customer_Name"><br><br>
 
-								<input class="form-control3" type="text" placeholder=" Mobile No." name="Mobile_No"><br><br>
+								<input id="Mobile_No" name="Mobile_No" type="text" class="form-control3" placeholder=" Mobile No." maxlength="11"><br><br>
 
-								<input class="form-control3" type="text" placeholder=" Email Address" name="Email_Addr"><br><br>
+								<input id="Email_Addr" class="form-control3" type="text" placeholder=" Email Address" name="Email_Addr"><br><br>
 
                           	</div>
 							<div class="col-md-6">
-								<input class="form-control3" type="text" placeholder=" Shipping Address" name="Cust_Addr"><br><br>
+								<input id="Cust_Addr" class="form-control3" type="text" placeholder=" Shipping Address" name="Cust_Addr"><br><br>
 
-								<input class="form-control3" type="text" placeholder=" Pincode" name="Cust_Pincode"><br><br>
+								<input id="Cust_Pincode" class="form-control3" type="text" placeholder=" Pincode" name="Cust_Pincode" maxlength="6"><br><br>
 
-								<input class="form-control3" type="text" placeholder=" Landmark" name="Cust_Landmark"><br><br>
+								<input id="Cust_Landmark" class="form-control3" type="text" placeholder=" Landmark" name="Cust_Landmark"><br><br>
 								
 							
 							</div>
@@ -588,27 +588,27 @@
 								
 								<div class="funkyradio">
 									<div class="funkyradio-default">
-										<input type="radio" name="radio" id="radio1" onClick="setNoNames(1,150); showDiv('hidDiv1');"/>
-										<label for="radio1"><span class="offer-txt1"> Order </span><span class="offer-txt3">1 Name</span> at <span class="offer-txt2">Rs.150/-</span></label>
+										<input type="radio" name="radio" id="radio1" value="1" onClick="setNoNames(1,150); showDiv('hidDiv1');"/>
+										<label for="radio1"><span class="offer-txt3">1 Name</span> at <span class="offer-txt2">Rs.150/-</span></label>
 										<div id="hidDiv1" style="display: none;">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="1_Name">
+										<input id="1_Name" class="form-control" type="text" placeholder="Type Your Name" name="1_Name">
 										</div>
 									</div>
 									<div class="funkyradio-primary">
-										<input type="radio" name="radio" id="radio2" onClick="setNoNames(2,130); showDiv('hidDiv2');"/>
-										<label for="radio2"><span class="offer-txt1">Order </span><span class="offer-txt3">2 Names</span> at <span class="offer-txt2">Rs.130/-</span><span class="offer-txt1">each</span></label>
+										<input type="radio" name="radio" id="radio2" value="2" onClick="setNoNames(2,130); showDiv('hidDiv2');"/>
+										<label for="radio2"><span class="offer-txt3">2 Names</span> at <span class="offer-txt2">Rs.130/-</span><span class="offer-txt1"> each</span></label>
 										<div id="hidDiv2" style="display: none;">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="2_Name_1">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="2_Name_2">
+										<input id="2_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="2_Name_1">
+										<input id="2_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="2_Name_2">
 										</div>
 									</div>
 									<div class="funkyradio-success">
-										<input type="radio" name="radio" id="radio3" onClick="setNoNames(3,115); showDiv('hidDiv3');"/>
-										<label for="radio3"><span class="offer-txt1">Order </span><span class="offer-txt3">3 Names</span> at <span class="offer-txt2">Rs.115/-</span><span class="offer-txt1">each</span></label>
+										<input type="radio" name="radio" id="radio3" value="3" onClick="setNoNames(3,115); showDiv('hidDiv3');"/>
+										<label for="radio3"><span class="offer-txt3">3 Names</span> at <span class="offer-txt2">Rs.115/-</span><span class="offer-txt1"> each</span></label>
 										<div id="hidDiv3" style="display: none;">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="3_Name_1">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="3_Name_2">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="3_Name_3">
+										<input id="3_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="3_Name_1">
+										<input id="3_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="3_Name_2">
+										<input id="3_Name_3" class="form-control" type="text" placeholder="Type Your Name" name="3_Name_3">
 										</div>
 									</div>
 									
@@ -620,32 +620,22 @@
 								<div class="funkyradio">
 									
 									<div class="funkyradio-danger">
-										<input type="radio" name="radio" id="radio4" onClick="setNoNames(4,100); showDiv('hidDiv4');"/>
-										<label for="radio4"><span class="offer-txt1">Order </span><span class="offer-txt3">4 Names</span> at <span class="offer-txt2">Rs.100/-</span><span class="offer-txt1">each</span></label>
+										<input type="radio" name="radio" id="radio4" value="4" onClick="setNoNames(4,100); showDiv('hidDiv4');"/>
+										<label for="radio4"><span class="offer-txt3">4 Names</span> at <span class="offer-txt2">Rs.100/-</span><span class="offer-txt1"> each</span></label>
 										<div id="hidDiv4" style="display: none;">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="4_Name_1">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="4_Name_2">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="4_Name_3">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="4_Name_4">
+										<input id="4_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="4_Name_1">
+										<input id="4_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="4_Name_2">
+										<input id="4_Name_3" class="form-control" type="text" placeholder="Type Your Name" name="4_Name_3">
+										<input id="4_Name_4" class="form-control" type="text" placeholder="Type Your Name" name="4_Name_4">
 										</div>
 									</div>
 									<div class="funkyradio-warning">
-										<input type="radio" name="radio" id="radio5" onClick="showDiv('hidDiv5')"/>
-										<label for="radio5"><span class="offer-txt1">Order </span><span class="offer-txt3">5 to 9 Names</span> at <span class="offer-txt2">Rs.90/-</span><span class="offer-txt1">each</span></label>
+										<input type="radio" name="radio" id="radio5" value="5" onClick="showDiv('hidDiv5')"/>
+										<label for="radio5"><span class="offer-txt3">5 to 9 Names</span> at <span class="offer-txt2">Rs.90/-</span><span class="offer-txt1"> each</span></label>
 										<div id="hidDiv5" style="display: none;">
-										<!--<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_1">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_2">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_3">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_4">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_5">
-
-										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_6">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_7">
-										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_8" >
-										<input class="form-control" type="text" placeholder="Type Your Name" name="5_Name_9">
-										<br />-->
+										
 									
-										<select id="dd5_9" class="form-control" name="dd5_9" onChange="val('dd5_9',90);">
+										<select id="dd5_9" class="form-control" name="dd5_9" onChange="val('dd5_9',90,'btnUpload1');">
 											<option value="Select">Select No. of Names</option>
 											<option value="5">5</option>
 											<option value="6">6</option>
@@ -654,25 +644,26 @@
 									    	<option value="9">9</option>
 										</select>
 										<br />	
-										<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Upload File</button>
+										<button id="btnUpload1" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" disabled>Upload File</button>
 											
 										</div>
 									</div>
 									<div class="funkyradio-info">
-										<input type="radio" name="radio" id="radio6" onClick="showDiv('hidDiv6')"/>
-										<label for="radio6"><span class="offer-txt1">Order </span><span class="offer-txt3">10+ Names</span> at <span class="offer-txt2">Rs.80/-</span><span class="offer-txt1">each</span></label>
+										<input type="radio" name="radio" id="radio6" value="6" onClick="showDiv('hidDiv6')"/>
+										<label for="radio6"><span class="offer-txt3">10+ Names</span> at <span class="offer-txt2">Rs.80/-</span><span class="offer-txt1"> each</span></label>
 										<div id="hidDiv6" style="display: none;">
 										<!--<textarea name="6_Names" class="form-control4" placeholder="Enter Names Seperated by Commas"></textarea>-->
 											
-											<select id="dd10_100" class="dd10_100 form-control" name="dd10_100" onChange="val('dd10_100',80);">
+											<select id="dd10_100" class="dd10_100 form-control" name="dd10_100" onChange="val('dd10_100',80,'btnUpload2');">
 										</select>
 											<br />
-											<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Upload File</button>
+											<button id="btnUpload2" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" disabled>Upload File</button>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
+						<input id= "btnReset" type="reset" value="Reset" class="btn btn-info btn-sm" style="visibility: hidden;">
 						<button type="submit" id="submit-form" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ordSummary" style="margin-top: 1rem;">Place Order</button>
 						
 						
@@ -694,31 +685,36 @@
 						  <label class="blk-txt">Delivery Charges will be Rs 20 per Name.</label><br /><br />
                           <div class="col-md-6">
 							
+							  <h3 class="form-control">No. of Names : </h3>
+							  
+							  <h3 class="form-control">Cost / Name : </h3>
+							  <br />
 							  
 							  <h3 class="form-control">Sub-Total : </h3>
 							  
 							  <h3 class="form-control">Delivery Charges : </h3>
+							  <br />
 							 
 							  <h3 class="form-control">Total : </h3>
 							  
-                            <button type="submit" id="submit" onClick="refreshPage();" class="btn  btn-block w-80 font-weight-bold text-capitalize bg-theme1 text-white" style="margin-top: 1rem;"> Pay </button>
+                            <button type="submit" id="submit" onClick="alert('Payment Successful!'); refreshPage();" class="btn  btn-block w-80 font-weight-bold text-capitalize bg-theme1 text-white" style="margin-top: 1rem;"> Pay </button>
 
                           </div>
 						  <div class="col-md-6">
-							
+							  
+							  <h3 id="numNames" class="form-control">0.00</h3>
+							  
+							  <h3 id="cstName" class="form-control">0.00</h3>
+							  <br />
 							  
 							  <h3 id="value" class="form-control">0.00</h3>
 							  
-							 <h3 id="delPrice" class="form-control">0.00</h3>
+							  <h3 id="delPrice" class="form-control">0.00</h3>
+							  <br />
 							 
 							  <h3 id="price" class="form-control">0.00</h3>
 							  
-                            
-
                           </div>
-						  
-
-                    	  
 						</div>
 
 						</div>
@@ -745,93 +741,7 @@
 					</div>
 				</div>
 			</div>		
-				
-					
-                <script>
-					
-					function refreshPage(){
-						alert("Payment Successful!")
-    window.location.reload();
-} 
-					
-					function setURL(){
-						
-						var fldrName = Math.random().toString(36).substr(2, 8);
-						var link = 'https://script.google.com/macros/s/AKfycbwuHuj-FUyvgikfkjodnAqcNK1AgsRqMGdNw-hHT_fWpzrsBuFX/exec?name=' + fldrName;
-						document.getElementById("iFrmfileUpload").src = link;
-						document.getElementById("gDriveFldr").value = fldrName;						
-					}
-					
-					
-				 function val(id,price) {
-					setURL();
-    				setNoNames(document.getElementById(id).value,price);
-    				//alert(d);
-				 	}	
-					
-				function setNoNames(no,val){
-					//alert(val);
-					document.getElementById("noNames").value = no;
-					document.getElementById("cost").value = val;
-					calc();
-					
-				}	
-				
-				function calc(){
-					var value = (document.getElementById("noNames").value * document.getElementById("cost").value);
-					var delPrice = (20 * document.getElementById("noNames").value);
-					
-					document.getElementById("value").innerHTML =  value;
-					document.getElementById("delPrice").innerHTML =  delPrice;
-					document.getElementById("price").innerHTML =  value + delPrice;
-				}
-					
-					
-				  const scriptURL = 'https://script.google.com/macros/s/AKfycbwITY4UPwOxFjGmKzmF7M2q7fn-mst92CKYF7FUhyaGn1R0oK1D/exec'
-				  const form = document.forms['submit-to-google-sheet']
-
-				  form.addEventListener('submit', e => {
-					e.preventDefault()
-					fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-					  .then(response => console.log('Success!', response))
-					  .catch(error => console.error('Error!', error.message))
-
-				  })
-	
-				  function showDiv(id) {
-				var divs = ['hidDiv1','hidDiv2','hidDiv3','hidDiv4','hidDiv5','hidDiv6'];
-				var i,x;
-				for(i=0; i<divs.length;i++)
-				{
-					if (id == divs[i]) {
-						x = document.getElementById(divs[i]);
-						x.style.display = "block";
-					} else {
-						x = document.getElementById(divs[i]);
-						x.style.display = "none";
-					}
-				}
-			}					
-					
-					/*$('#uploadfile')
-						
-						.on("change", function() {
-        var file = this.files[0];
-        var fr = new FileReader();
-		var extn = file.name.substring(file.name.indexOf("."));
-        fr.fileName = "Sample" + extn;
-        fr.onload = function(e) {
-            e.target.result
-            html = '<input type="hidden" name="data" value="' + e.target.result.replace(/^.*,/, '') + '" >';
-            html += '<input type="hidden" name="mimetype" value="' + e.target.result.match(/^.*(?=;)/)[0] + '" >';
-            html += '<input type="hidden" name="filename" value="' + e.target.fileName + '" >';
-            $("#data").empty().append(html);
-        }
-        fr.readAsDataURL(file);
-						
-    });*/
-				</script>
-                
+			
             </div>
 				
           </div>
@@ -1154,7 +1064,7 @@
 
     <!-- login  -->
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 
         aria-hidden="true">
 
@@ -1242,13 +1152,13 @@
 
         </div>
 
-    </div>
+    </div>-->
 
     <!-- //login -->
 
     <!-- register -->
 
-    <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+    <!--<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
 
         aria-hidden="true">
 
@@ -1340,13 +1250,13 @@
 
         </div>
 
-    </div>
+    </div>-->
 
     <!-- // register -->
 
     <!-- blog modal1 -->
 
-    <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
+    <!--<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
 
         aria-hidden="true">
 
@@ -1388,13 +1298,13 @@
 
         </div>
 
-    </div>
+    </div>-->
 
     <!-- //blog modal1 -->
 
     <!-- blog modal2 -->
 
-    <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3"
+    <!--<div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3"
 
         aria-hidden="true">
 
@@ -1436,13 +1346,13 @@
 
         </div>
 
-    </div>
+    </div>-->
 
     <!-- //blog modal2 -->
 
     <!-- blog modal3 -->
 
-    <div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4"
+    <!--<div class="modal fade" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel4"
 
         aria-hidden="true">
 
@@ -1484,7 +1394,7 @@
 
         </div>
 
-    </div>
+    </div>-->
 
     <!-- //blog modal3-->
 
@@ -1496,7 +1406,7 @@
 
     <!-- script for password match -->
 
-    <script>
+    <!--<script>
 
         window.onload = function () {
 
@@ -1526,7 +1436,7 @@
 
         }
 
-    </script>
+    </script>-->
 
     <!-- script for password match -->
 
@@ -1666,10 +1576,73 @@
     <!-- Placed at the end of the document so the pages load faster -->
 
     <script src="js/bootstrap.js"></script>
+	
 	<script>
-
+		
+    var ddl1Select = 0;
+	var ddl2Select = 0;
+		
+	function chkddl(ddl)
+	{
+		if(ddl===5)
+		{
+			if(document.getElementById("dd5_9").value != 'Select')
+				ddl1Select = 1;
+		}
+		else
+		{
+			if(document.getElementById("dd10_100").value != 'Select')
+				ddl2Select = 1;
+		}
+	}
+		
+	/*function checkField()
+	{
+		var custName = document.getElementById("Cust_Name").value;
+		var custMobile = document.getElementById("Mobile_No").value;
+		var custEmail = document.getElementById("Email_Addr").value;
+		var custAddr = document.getElementById("Cust_Addr").value;
+		var custPin = document.getElementById("Cust_Pincode").value;
+		//var radios = document.getElementsByTagName('input');
+		//var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
+		
+		var radioChecked = 0;
+		var radioValue = "";
+		var ddlValue "";
+		
+		
+		for (var i=0; i<radios.length; i++) {
+    		if (radios[i].type === 'radio' && radios[i].checked) {
+        		radioValue = radios[i].value;
+				if(radioValue===5 || radioValue===6){chkddl(radioValue);}
+				radioChecked = 1;
+    		}	
+		}
+		
+		
+		if (custName === '' || custEmail === '' || custMobile === '' || custAddr === '' || custPin === '') {
+		alert("Please fill all fields!");
+		return false;
+		} else if (!(custEmail).match(emailReg)) {
+		alert("Invalid Email!");
+		return false;
+		}else if (radioValue === 5 && ddl1Select === 0) {
+		alert("Select Number of Names for 5+ Order!");
+		return false;
+		} else if (radioValue === 6 && ddl2Select === 0) {
+		alert("Select Number of Names for 10+ Order!");
+		return false;
+		} else {
+		return true;	
+	}
+	}*/
+		
+	
+		
+	//preview names	
+	
 	document.getElementById("myInput").onkeydown = chkEvent  
-	var formInUse = false;
+	//var formInUse = false;
 	function chkEvent(e) 
 	{
 		var keycode;
@@ -1677,12 +1650,31 @@
 		else if (e) keycode = e.which; 
 
 		//if ((keycode > 64 && keycode < 91) || (keycode > 96 && keycode < 123) || keycode == 8 || keycode == 32)
-		if ((keycode > 64 && keycode < 68) || (keycode > 96 && keycode < 100) || keycode == 8 || keycode == 32)
+		if ((keycode > 64 && keycode < 68) || (keycode > 96 && keycode < 100) || keycode == 8 || keycode == 32 || keycode == 127)
 			return true;
 		else
 			return false;
 
 	}	
+		
+	
+	document.getElementById("Mobile_No").onkeydown = chkNoInput;
+	document.getElementById("Cust_Pincode").onkeydown = chkNoInput;
+	
+	function chkNoInput(f) 
+	{
+		var keycode;
+		if (window.event) keycode = window.event.keyCode; 
+		else if (f) keycode = f.which; 
+
+		//if ((keycode > 64 && keycode < 91) || (keycode > 96 && keycode < 123) || keycode == 8 || keycode == 32)
+		if ((keycode >47  && keycode < 58) || keycode == 8 || keycode == 127)
+			return true;
+		else
+			return false;
+
+	}		
+	
 
 	function myFunction() 
 	{
@@ -1717,15 +1709,113 @@
 			dvPreview.appendChild(img);
 		}
 	}
-
+		
+    // add values 10-100 to dropdown
+		
 	$(function(){
     var $select = $(".dd10_100");
 	$select.append($('<option></option>').val("Select").html("Select No. of Names"));
     for (i=10;i<=100;i++){
         $select.append($('<option></option>').val(i).html(i))
     }
-});
+	});
 		
+	// reload webpage
+		
+	function refreshPage(){
+			//window.location.reload();
+		document.getElementById("btnReset").click();
+	} 
+
+	// set Modal iframe URL & set google drive folder name
+		
+	function setURL(){
+
+		var fldrName = Math.random().toString(36).substr(2, 8);
+		var link = 'https://script.google.com/macros/s/AKfycbwuHuj-FUyvgikfkjodnAqcNK1AgsRqMGdNw-hHT_fWpzrsBuFX/exec?name=' + fldrName;
+		document.getElementById("iFrmfileUpload").src = link;
+		document.getElementById("gDriveFldr").value = fldrName;						
+	}
+
+	// set price for drop downs	
+
+	 function val(id,price,id2) {
+		
+		document.getElementById(id2).disabled = false;
+		setURL();
+		setNoNames(document.getElementById(id).value,price);
+		//alert(d);
+		}	
+
+	// sets number of orders and per order value	
+		
+	function setNoNames(no,val){
+		//alert(val);
+		document.getElementById("noNames").value = no;
+		document.getElementById("cost").value = val;
+		calc();
+	}	
+
+	// calculates final amount and delivery charges	
+		
+	function calc(){
+		var numName = document.getElementById("noNames").value;
+		var cstName =  document.getElementById("cost").value;
+		var value = numName * cstName;
+		var delPrice = 20 * numName;
+		
+		document.getElementById("numNames").innerHTML =  numName;
+		document.getElementById("cstName").innerHTML =  cstName;
+		document.getElementById("value").innerHTML =  value;
+		document.getElementById("delPrice").innerHTML =  delPrice;
+		document.getElementById("price").innerHTML =  value + delPrice;
+	}
+
+   // sends file to google script to write form values to google sheet
+		
+	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwITY4UPwOxFjGmKzmF7M2q7fn-mst92CKYF7FUhyaGn1R0oK1D/exec'
+	  const form = document.forms['submit-to-google-sheet']
+
+	  form.addEventListener('submit', e => {
+		e.preventDefault()
+		fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+		  .then(response => console.log('Success!', response))
+		  .catch(error => console.error('Error!', error.message))
+	  })
+
+	// shows/hides order div's on radio button click
+		
+		function clearText(){
+		//alert("in Clear");
+		var ids = ['1_Name','2_Name_1','2_Name_2','3_Name_1','3_Name_2','3_Name_3','4_Name_1','4_Name_2','4_Name_3','4_Name_4'];
+		
+		var i;
+		for(i=0;i<ids.length;i++)
+		{
+			document.getElementById(ids[i]).value='';
+		}
+		
+	}
+		
+	  function showDiv(id) {
+		//alert("in Show");
+		clearText();  
+		var divs = ['hidDiv1','hidDiv2','hidDiv3','hidDiv4','hidDiv5','hidDiv6'];
+		var i,x;
+		for(i=0; i<divs.length;i++)
+		{
+			if (id == divs[i]) {
+				x = document.getElementById(divs[i]);
+				x.style.display = "block";
+			} else {
+				x = document.getElementById(divs[i]);
+				x.style.display = "none";
+			}
+		}
+		
+	  }					
+
+	
 		
 	</script>
 </body>

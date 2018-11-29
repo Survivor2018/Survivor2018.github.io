@@ -551,7 +551,7 @@
 
                 <div class="contact-form">
 
-                <form name="submit-to-google-sheet" class="register-wthree" >
+                <form name="submit-to-google-sheet" class="register-wthree" onSubmit="return checkField();" >
 					<input type="hidden" id="noNames" name="noNames">
 					<input type="hidden" id="cost" name="cost">
 					<input type="hidden" id="gDriveFldr" name="gDriveFldr">
@@ -1723,8 +1723,8 @@
 	// reload webpage
 		
 	function refreshPage(){
-			//window.location.reload();
-		document.getElementById("btnReset").click();
+			window.location.reload();
+		//document.getElementById("btnReset").click();
 	} 
 
 	// set Modal iframe URL & set google drive folder name

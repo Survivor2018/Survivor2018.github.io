@@ -557,7 +557,7 @@
 
                 <div class="contact-form">
 
-                <form name="submit-to-google-sheet" class="register-wthree" onSubmit="return checkField();" >
+                <form name="submit-to-google-sheet" class="register-wthree">
 					<input type="hidden" id="noNames" name="noNames">
 					<input type="hidden" id="cost" name="cost">
 					<input type="hidden" id="gDriveFldr" name="gDriveFldr">
@@ -669,15 +669,19 @@
 								</div>
 							</div>
 						</div>
-						<input id= "btnReset" type="reset" value="Reset" class="btn btn-info btn-sm" style="visibility: hidden;">
-						<button type="submit" id="submit-form" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ordSummary" style="margin-top: 1rem;">Place Order</button>
 						
+						
+					
+						
+						<input id= "btnReset" type="reset" value="Reset" style="visibility: hidden;">
+						
+						<button type="button" id="btnPlaceOrder" class="btn btn-info btn-sm" onClick="chk()">Place Order</button>
+						<button type="submit" id="submit-form" data-toggle="modal" data-target="#ordSummary" style="margin-top: 1rem; visibility:hidden;"></button>
 						
                     </div>
 					
                 </form>
-			</div>
-				
+					
 			<div id="ordSummary" class="modal fade" role="dialog">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -703,7 +707,7 @@
 							 
 							  <h3 class="form-control">Total : </h3>
 							  
-                            <button type="submit" id="submit" onClick="alert('Payment Successful!'); refreshPage();" class="btn btn-info" style="margin-top: 1rem;"> Pay </button>
+                            <button type="button" id="submit" onClick="alert('Payment Successful!');refreshPage();" class="btn btn-info" style="margin-top: 1rem;" data-dismiss="modal" > Pay </button>
 
                           </div>
 						  <div class="col-md-6">
@@ -724,9 +728,9 @@
 						</div>
 
 						</div>
-						<div class="modal-footer">
+						<!--<div class="modal-footer">
 							<button onClick="refreshPage()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						</div>
+						</div>-->
 					</div>
 				</div>
 			</div>
@@ -743,12 +747,14 @@
 						</div>
 						
 						<div class="modal-footer">
-							<button type="button" class="btn btn-sm btn-info" onClick="postFileUpl();" data-dismiss="modal">Place Order</button>
+							<button type="button" id="btnModalOrder" class="btn btn-sm btn-info" onClick="chk()" data-dismiss="modal">Place Order</button>
 							
 						</div>
 					</div>
 				</div>
-			</div>		
+			</div>	
+			</div>
+					
 			
             </div>
 				
@@ -1586,73 +1592,110 @@
     <script src="js/bootstrap.js"></script>
 	
 	<script>
+	// sends file to google script to write form values to google sheet
 		
-    var ddl1Select = 0;
-	var ddl2Select = 0;
-	
-	function postFileUpl(){
+	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwITY4UPwOxFjGmKzmF7M2q7fn-mst92CKYF7FUhyaGn1R0oK1D/exec'
+	  const form = document.forms['submit-to-google-sheet']
+
+	  form.addEventListener('submit', e => {
+		e.preventDefault()});
 		
-		var btn = document.getElementById("submit-form");
-		btn.click();
-		btn.disabled = true;
-	}	
-		
-		
-	function chkddl(ddl)
-	{
-		if(ddl===5)
-		{
-			if(document.getElementById("dd5_9").value != 'Select')
-				ddl1Select = 1;
+		function dataEntry(){ 
+			
+			
+		fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+		  .then(response => console.log('Success!', response))
+		  .catch(error => console.error('Error!', error.message))
 		}
-		else
-		{
-			if(document.getElementById("dd10_100").value != 'Select')
-				ddl2Select = 1;
-		}
-	}
 		
-	/*function checkField()
+    function chk()
 	{
+		
 		var custName = document.getElementById("Cust_Name").value;
 		var custMobile = document.getElementById("Mobile_No").value;
 		var custEmail = document.getElementById("Email_Addr").value;
 		var custAddr = document.getElementById("Cust_Addr").value;
 		var custPin = document.getElementById("Cust_Pincode").value;
-		//var radios = document.getElementsByTagName('input');
-		//var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
+		
+		var rad1 = document.getElementById('radio1');
 		
 		var radioChecked = 0;
 		var radioValue = "";
-		var ddlValue "";
+		var ddl1Select = 0;
+		var ddl2Select = 0;
+		var radioIds = ['radio1','radio2','radio3','radio4','radio5','radio6'];
 		
-		
-		for (var i=0; i<radios.length; i++) {
-    		if (radios[i].type === 'radio' && radios[i].checked) {
-        		radioValue = radios[i].value;
-				if(radioValue===5 || radioValue===6){chkddl(radioValue);}
+		for(i=0; i<radioIds.length;i++){
+			var rad = document.getElementById(radioIds[i]);
+			if(rad.checked){
 				radioChecked = 1;
-    		}	
+				radioValue = rad.value;
+			}
+		}
+		
+		if(radioValue == 5){
+			if(document.getElementById("dd5_9").value != 'Select')
+				ddl1Select = 1;
+		
+		}
+		if(radioValue == 6){
+		if(document.getElementById("dd10_100").value != 'Select')
+				ddl2Select = 1;
 		}
 		
 		
-		if (custName === '' || custEmail === '' || custMobile === '' || custAddr === '' || custPin === '') {
-		alert("Please fill all fields!");
-		return false;
-		} else if (!(custEmail).match(emailReg)) {
-		alert("Invalid Email!");
-		return false;
-		}else if (radioValue === 5 && ddl1Select === 0) {
-		alert("Select Number of Names for 5+ Order!");
-		return false;
-		} else if (radioValue === 6 && ddl2Select === 0) {
-		alert("Select Number of Names for 10+ Order!");
-		return false;
-		} else {
-		return true;	
-	}
-	}*/
+		//alert(radioChecked);
 		
+		if (custName == '' || custEmail == '' || custMobile == '' || custAddr == '' || custPin ==  '') {
+			alert("Please fill all fields!");
+			//validEntry=0;
+		
+		} else if (!/\S+@\S+\.\S+/.test(custEmail)) {
+			alert("Invalid Email!");
+			//validEntry=0;
+		}
+		else if(radioChecked == 0){
+			alert("Please select number of names required!");
+		}
+		/*else if (rad1.checked) {
+			var rad1txt=document.getElementById('1_Name');
+			if(rad1txt.value.length == 0){
+				alert("Please enter the Name!");
+			}
+			//validEntry=0;
+		} 
+		else if (radioValue == 2) {
+			if(document.getElementById("2_Name_1").value == '' || document.getElementById("2_Name_2").value == ''){
+				alert("Please enter both the 2 Names!");
+			}
+			//validEntry=0;
+		}
+		else if (radioValue == 3) {
+			if(document.getElementById("3_Name_1").value == '' || document.getElementById("3_Name_2").value == '' || document.getElementById("3_Name_3").value == ''){
+				alert("Please enter all the 3 Names!");
+			}
+			//validEntry=0;
+		}
+		else if (radioValue == 4) {
+			if(document.getElementById("4_Name_1").value == '' || document.getElementById("4_Name_2").value == '' || document.getElementById("4_Name_3").value == '' || document.getElementById("4_Name_4").value == ''){
+				alert("Please enter all the 4 Names!");
+			}
+			//validEntry=0;
+		}*/
+		else if (radioValue == 5 && ddl1Select == 0) {
+			alert("Please select Number of Names for 5+ Order!");//validEntry=0;
+		}
+		else if (radioValue == 6 && ddl2Select == 0) {
+			alert("Please select Number of Names for 10+ Order!");//validEntry=0;
+		}
+		else //validEntry=1;
+		{
+			dataEntry();
+			document.getElementById("submit-form").click();
+		}
+		
+		//alert(validEntry);
+	}
 	
 		
 	//preview names	
@@ -1739,8 +1782,11 @@
 	// reload webpage
 		
 	function refreshPage(){
-			window.location.reload();
-		//document.getElementById("btnReset").click();
+		//alert("in refresh page");
+			//window.location.reload();
+		document.getElementById("btnReset").click();
+		showDiv();
+		
 	} 
 
 	// set Modal iframe URL & set google drive folder name
@@ -1786,18 +1832,77 @@
 		document.getElementById("delPrice").innerHTML =  delPrice;
 		document.getElementById("price").innerHTML =  value + delPrice;
 	}
-
-   // sends file to google script to write form values to google sheet
 		
-	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwITY4UPwOxFjGmKzmF7M2q7fn-mst92CKYF7FUhyaGn1R0oK1D/exec'
-	  const form = document.forms['submit-to-google-sheet']
+	
+	
+	/*var btnOrder = document.getElementById("btnPlaceOrder");	
+	btnOrder.onclick = function(){
+        
+		
+		var custName = document.getElementById("Cust_Name").value;
+		var custMobile = document.getElementById("Mobile_No").value;
+		var custEmail = document.getElementById("Email_Addr").value;
+		var custAddr = document.getElementById("Cust_Addr").value;
+		var custPin = document.getElementById("Cust_Pincode").value;
+		
+		var radioChecked = 0;
+		var radioValue = "";
+		var ddlValue = "";
+		var radioIds = ['radio1','radio2','radio3','radio4','radio5','radio6'];
+		
+		for(i=0; i<radioIds.length;i++){
+			var rad = document.getElementById(radioIds[i]);
+			if(rad.checked){
+				radioChecked = 1;
+				radioValue = rad.value;
+			}
+		}
+		
+		if(radioValue == 5 || radioValue == 6){chkddl(radioValue);}
+		
+		alert(radioChecked);
+		
+		if (custName == '' || custEmail == '' || custMobile == '' || custAddr == '' || custPin ==  '' || radioChecked == 0) {
+		alert("Please fill all fields!");	
+		
+		} else if (!/\S+@\S+\.\S+/.test(custEmail)) {
+		alert("Invalid Email!");
+		
+		} else if (radioValue == 1) {
+			if(document.getElementById("1_Name").value == ''){
+				alert("Please enter the Name!");
+			}
+		}else if (radioValue == 2) {
+			if(document.getElementById("2_Name_1").value == '' || document.getElementById("2_Name_2").value == ''){
+				alert("Please enter both the 2 Names!");
+			}	
+		}else if (radioValue == 3) {
+			if(document.getElementById("3_Name_1").value == '' || document.getElementById("3_Name_2").value == '' || document.getElementById("3_Name_3").value == ''){
+				alert("Please enter all the 3 Names!");
+			}
+		}else if (radioValue == 4) {
+			if(document.getElementById("4_Name_1").value == '' || document.getElementById("4_Name_2").value == '' || document.getElementById("4_Name_3").value == '' || document.getElementById("4_Name_4").value == ''){
+				alert("Please enter all the 4 Names!");
+			}
+		}else if (radioValue == 5 && ddl1Select == 0) {
+		alert("Please select Number of Names for 5+ Order!");
+		}
+		else if (radioValue == 6 && ddl2Select == 0) {
+		alert("Please select Number of Names for 10+ Order!");
+		} 
+		else
+		{
+			alert("in Else")
+			dataEntry();
+			document.getElementById("submit-form").click();
+		}
+	
+    }*/
 
-	  form.addEventListener('submit', e => {
-		e.preventDefault()
-		fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-		  .then(response => console.log('Success!', response))
-		  .catch(error => console.error('Error!', error.message))
-	  })
+   
+	  
+		
+	
 
 	// shows/hides order div's on radio button click
 		
@@ -1828,9 +1933,27 @@
 				x.style.display = "none";
 			}
 		}
+		if(id =='hidDiv5' || id =='hidDiv6')
+			{
+				document.getElementById("btnPlaceOrder").disabled = true;
+			}
+			else {
+				document.getElementById("btnPlaceOrder").disabled = false;
+			}
 		
 	  }					
-
+	
+	
+	/*function postFileUpl(){
+		
+		var btn = document.getElementById("submit-form");
+		btn.click();
+		btn.disabled = true;
+	}	*/
+		
+		
+	
+		
 	
 		
 	</script>

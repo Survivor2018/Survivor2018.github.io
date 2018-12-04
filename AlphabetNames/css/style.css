@@ -690,7 +690,7 @@ ul.callbacks_tabs {
 
     font-size: 0;
 
-    visibility: visible;
+    visibility:hidden;
 
     display: inline-block;
 
@@ -1487,7 +1487,7 @@ h3.wthree-title {
 
 .sec-main {
 
-    margin-bottom: 2em;}
+    margin-bottom: 1em;}
 
 
 

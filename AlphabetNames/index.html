@@ -103,13 +103,13 @@
 
                 </div>
 
-				 <p><strong>Alphabet Names</strong> a great way to personalise your space<span class="about-head">, with colourful, c</span>heerful, and creative alphabets, made in durable and child-friendly plastic.</p><br>
+				 <p><strong>Alphabet Names</strong> a great way to personalise your space<span class="about-head">, with colourful, c</span>heerful, and creative alphabets, made in durable and child-friendly plastic.</p>
 
-				 <p>Be it your cupboard, room door, decorative wall, drawing board, study desk, or play space; all of these can now become fun with your name or choice of words.</p><br>
+				 <p>Be it your cupboard, room door, decorative wall, drawing board, study desk, or play space; all of these can now become fun with your name or choice of words.</p>
 
-				 <p>Each alphabet comes with a long lasting double sided foam tape which can be used on any surface, wood, metal, laminates, glass and home walls.</p><br>
+				 <p>Each alphabet comes with a long lasting double sided foam tape which can be used on any surface, wood, metal, laminates, glass and home walls.</p>
 
-				 <p>It can be removed without leaving marks on the surface.</p><br>
+				 <p>It can be removed without leaving marks on the surface.</p>
 
 				 <p>Enjoy these attractive alphabets for your kids and their friends. They can also be fun giveaways at birthdays and parties.</p>
 
@@ -435,19 +435,18 @@
 			
                             <div class="col-md-6">
 							
-								<input id="Cust_Name" class="form-control3" type="text" placeholder=" Your Name" name="Customer_Name"><br><br>
+								<input id="Cust_Name" class="form-control3" tabindex="1" type="text" placeholder=" Your Name" name="Customer_Name"><br><br>
 
-								<input id="Mobile_No" name="Mobile_No" type="text" class="form-control3" placeholder=" Mobile No." maxlength="11"><br><br>
+								<input id="Mobile_No" name="Mobile_No" type="number" tabindex="2" class="form-control3" placeholder=" Mobile No." maxlength="11" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
 
-								<input id="Email_Addr" class="form-control3" type="text" placeholder=" Email Address" name="Email_Addr"><br><br>
-
+								<input id="Email_Addr" class="form-control3" tabindex="3" type="text" placeholder=" Email Address" name="Email_Addr"><br><br>
                           	</div>
 							<div class="col-md-6">
-								<input id="Cust_Addr" class="form-control3" type="text" placeholder=" Shipping Address" name="Cust_Addr"><br><br>
+								<input id="Cust_Addr" class="form-control3" tabindex="4" type="text" placeholder=" Shipping Address" name="Cust_Addr"><br><br>
 
-								<input id="Cust_Pincode" class="form-control3" type="text" placeholder=" Pincode" name="Cust_Pincode" maxlength="6"><br><br>
+								<input id="Cust_Pincode" class="form-control3" tabindex="5" type="number" placeholder=" Pincode" name="Cust_Pincode" maxlength="6" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
 
-								<input id="Cust_Landmark" class="form-control3" type="text" placeholder=" Landmark" name="Cust_Landmark"><br><br>
+								<input id="Cust_Landmark" class="form-control3" tabindex="6" type="text" placeholder=" Landmark" name="Cust_Landmark"><br><br>
 								
 							
 							</div>
@@ -462,28 +461,28 @@
 								
 								<div class="funkyradio">
 									<div class="funkyradio-default">
-										<input type="radio" name="radio" id="radio1" value="1" onClick="setNoNames(1,150); showDiv('hidDiv1');"/>
+										<input type="radio" name="radio" id="radio1" tabindex="7" value="1" onClick="setNoNames(1,150); showDiv('nameDiv1');"/>
 										<label for="radio1"><span class="offer-txt3">1 Name</span> at <span class="offer-txt2">Rs.150/-</span></label>
-										<div id="hidDiv1" style="display: none;">
-										<input id="1_Name" class="form-control" type="text" placeholder="Type Your Name" name="1_Name">
-										</div>
+										<!--<div id="hidDiv1" style="display: none;">
+											<input id="1_Name" class="form-control" type="text" placeholder="Type Your Name" name="Name_1">
+										</div>-->
 									</div>
 									<div class="funkyradio-primary">
-										<input type="radio" name="radio" id="radio2" value="2" onClick="setNoNames(2,130); showDiv('hidDiv2');"/>
+										<input type="radio" name="radio" id="radio2" tabindex="8" value="2" onClick="setNoNames(2,130); showDiv('nameDiv1');"/>
 										<label for="radio2"><span class="offer-txt3">2 Names</span> at <span class="offer-txt2">Rs.130/-</span><span class="offer-txt1"> each</span></label>
-										<div id="hidDiv2" style="display: none;">
-										<input id="2_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="2_Name_1">
-										<input id="2_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="2_Name_2">
-										</div>
+										<!--<div id="hidDiv2" style="display: none;">
+											<input id="2_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="Name_1">
+											<input id="2_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="Name_2">
+										</div>-->
 									</div>
 									<div class="funkyradio-success">
-										<input type="radio" name="radio" id="radio3" value="3" onClick="setNoNames(3,115); showDiv('hidDiv3');"/>
+										<input type="radio" name="radio" id="radio3" tabindex="9" value="3" onClick="setNoNames(3,115); showDiv('nameDiv1');"/>
 										<label for="radio3"><span class="offer-txt3">3 Names</span> at <span class="offer-txt2">Rs.115/-</span><span class="offer-txt1"> each</span></label>
-										<div id="hidDiv3" style="display: none;">
-										<input id="3_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="3_Name_1">
-										<input id="3_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="3_Name_2">
-										<input id="3_Name_3" class="form-control" type="text" placeholder="Type Your Name" name="3_Name_3">
-										</div>
+										<!--<div id="hidDiv3" style="display: none;">
+											<input id="3_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="Name_1">
+											<input id="3_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="Name_2">
+											<input id="3_Name_3" class="form-control" type="text" placeholder="Type Your Name" name="Name_3">
+										</div>-->
 									</div>
 								</div>
 							</div>
@@ -491,33 +490,33 @@
 								<div class="funkyradio">
 									
 									<div class="funkyradio-danger">
-										<input type="radio" name="radio" id="radio4" value="4" onClick="setNoNames(4,100); showDiv('hidDiv4');"/>
+										<input type="radio" name="radio" id="radio4" tabindex="9" value="4" onClick="setNoNames(4,100); showDiv('nameDiv1');"/>
 										<label for="radio4"><span class="offer-txt3">4 Names</span> at <span class="offer-txt2">Rs.100/-</span><span class="offer-txt1"> each</span></label>
-										<div id="hidDiv4" style="display: none;">
-										<input id="4_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="4_Name_1">
-										<input id="4_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="4_Name_2">
-										<input id="4_Name_3" class="form-control" type="text" placeholder="Type Your Name" name="4_Name_3">
-										<input id="4_Name_4" class="form-control" type="text" placeholder="Type Your Name" name="4_Name_4">
-										</div>
+										<!--<div id="hidDiv4" style="display: none;">
+											<input id="4_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="Name_1">
+											<input id="4_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="Name_2">
+											<input id="4_Name_3" class="form-control" type="text" placeholder="Type Your Name" name="Name_3">
+											<input id="4_Name_4" class="form-control" type="text" placeholder="Type Your Name" name="Name_4">
+										</div>-->
 									</div>
 									<div class="funkyradio-warning">
-										<input type="radio" name="radio" id="radio5" value="5" onClick="showDiv('hidDiv5')"/>
+										<input type="radio" name="radio" id="radio5" value="5" tabindex="10" onClick="showDiv('hidDiv5');"/>
 										<label for="radio5"><span class="offer-txt3">5 to 9 Names</span> at <span class="offer-txt2">Rs.90/-</span><span class="offer-txt1"> each</span></label>
 										<div id="hidDiv5" style="display: none;">
-											<select id="dd5_9" class="form-control" name="dd5_9" onChange="val('dd5_9',90,'btnUpload1');">
-											<option value="Select">Select No. of Names</option>
-											<option value="5">5</option>
-											<option value="6">6</option>
-											<option value="7">7</option>
-											<option value="8">8</option>
-									    	<option value="9">9</option>
-										</select>
+											<select id="dd5_9" class="form-control" name="dd5_9" onChange="setNoNames(document.getElementById('dd5_9').value,90);showDiv('nameDiv2');">
+												<option value="Select">Select No. of Names</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+											</select>
 											<br />	
-											<button id="btnUpload1" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" disabled>Upload File</button>	
+											<!--<button id="btnUpload1" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" disabled>Upload File</button>-->	
 										</div>
 									</div>
 									<div class="funkyradio-info">
-										<input type="radio" name="radio" id="radio6" value="6" onClick="showDiv('hidDiv6')"/>
+										<input type="radio" name="radio" id="radio6" value="6" tabindex="11" onClick="showDiv('hidDiv6')"/>
 										<label for="radio6"><span class="offer-txt3">10+ Names</span> at <span class="offer-txt2">Rs.80/-</span><span class="offer-txt1"> each</span></label>
 										<div id="hidDiv6" style="display: none;">
 											<select id="dd10_100" class="dd10_100 form-control" name="dd10_100" onChange="val('dd10_100',80,'btnUpload2');">
@@ -529,6 +528,25 @@
 								</div>
 							</div>
 						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<div id="nameDiv1" style="display: none;">
+									<input id="Name_1" class="form-control" autofocus type="text" tabindex="12" placeholder="Type Name 1" name="Name_1">
+									<input id="Name_2" class="form-control" type="text" tabindex="13" placeholder="Type Name 2" name="Name_2">
+									<input id="Name_3" class="form-control" type="text" tabindex="14" placeholder="Type Name 3" name="Name_3">
+									<input id="Name_4" class="form-control" type="text" tabindex="15" placeholder="Type Name 4" name="Name_4">	
+							</div>
+							</div>
+							<div class="col-md-6">
+								<div id="nameDiv2" style="display: none;">
+									<input id="Name_5" class="form-control" type="text" tabindex="16" placeholder="Type Name 5" name="Name_5">
+									<input id="Name_6" class="form-control" type="text" tabindex="17" placeholder="Type Name 6" name="Name_6">
+									<input id="Name_7" class="form-control" type="text" tabindex="18" placeholder="Type Name 7" name="Name_7">
+									<input id="Name_8" class="form-control" type="text" tabindex="19" placeholder="Type Name 8" name="Name_8">
+									<input id="Name_9" class="form-control" type="text" tabindex="20" placeholder="Type Name 9" name="Name_9">
+								</div>
+							</div>	
+						</div>
 						
 						<input id= "btnReset" type="reset" value="Reset" style="visibility: hidden;">
 					
@@ -536,7 +554,7 @@
 						
                     </div>
 					<div style="display: flex;justify-content: center;">
-						<button type="button" id="btnPlaceOrder" class="btn btn-info btn-sm" onClick="chk()">Place Order</button>
+						<button type="button" id="btnPlaceOrder" class="btn btn-info btn-sm" tabindex="21" onClick="chk()">Place Order</button>
 					</div>
                 </form>
 					
@@ -1036,7 +1054,7 @@
 	}	
 		
 	
-	document.getElementById("Mobile_No").onkeydown = chkNoInput;
+	/*document.getElementById("Mobile_No").onkeydown = chkNoInput;
 	document.getElementById("Cust_Pincode").onkeydown = chkNoInput;
 	
 	function chkNoInput(f) 
@@ -1046,12 +1064,12 @@
 		else if (f) keycode = f.which; 
 
 		//if ((keycode > 64 && keycode < 91) || (keycode > 96 && keycode < 123) || keycode == 8 || keycode == 32)
-		if ((keycode >47  && keycode < 58) || keycode == 8 || keycode == 127)
+		if ((keycode >47  && keycode < 58) || keycode == 8 || keycode == 127 || keycode == 8)
 			return true;
 		else
 			return false;
 
-	}		
+	}		*/
 	
 
 	function myFunction() 
@@ -1110,7 +1128,10 @@
 		//alert("in refresh page");
 			//window.location.reload();
 		document.getElementById("btnReset").click();
-		showDiv();
+		document.getElementById("hidDiv6").style.display = "none";
+		document.getElementById("hidDiv5").style.display = "none";
+		document.getElementById("nameDiv1").style.display = "none";
+		document.getElementById("nameDiv2").style.display = "none";
 		
 	} 
 
@@ -1162,7 +1183,7 @@
 		
 		function clearText(){
 		//alert("in Clear");
-		var ids = ['1_Name','2_Name_1','2_Name_2','3_Name_1','3_Name_2','3_Name_3','4_Name_1','4_Name_2','4_Name_3','4_Name_4'];
+		var ids = ['Name_1','Name_2','Name_3','Name_4','Name_5','Name_6','Name_7','Name_8','Name_9'];
 		
 		var i;
 		for(i=0;i<ids.length;i++)
@@ -1170,31 +1191,51 @@
 			document.getElementById(ids[i]).value='';
 		}
 		
+		
+		
 	}
+		
 		
 	  function showDiv(id) {
 		//alert("in Show");
 		clearText();  
-		var divs = ['hidDiv1','hidDiv2','hidDiv3','hidDiv4','hidDiv5','hidDiv6'];
+		var divs = ['nameDiv1','nameDiv2','hidDiv5','hidDiv6'];
 		var i,x;
-		for(i=0; i<divs.length;i++)
-		{
-			if (id == divs[i]) {
-				x = document.getElementById(divs[i]);
-				x.style.display = "block";
-			} else {
-				x = document.getElementById(divs[i]);
-				x.style.display = "none";
+		if(id =='nameDiv1' || id == 'hidDiv5'  || id == 'hidDiv6'){
+			document.getElementById("dd5_9").selectedIndex = 0;
+			
+			for(i=0; i<divs.length;i++)
+			{
+				if (id == divs[i]) {
+					x = document.getElementById(divs[i]);
+					x.style.display = "block";
+				} else {
+					x = document.getElementById(divs[i]);
+					x.style.display = "none";
+				}
 			}
 		}
-		if(id =='hidDiv5' || id =='hidDiv6')
-			{
-				document.getElementById("btnPlaceOrder").disabled = true;
-			}
-			else {
-				document.getElementById("btnPlaceOrder").disabled = false;
-			}
 		
+		/*if(id =='hidDiv5')
+		{
+			document.getElementById("hidDiv5").style.display = "block";
+			document.getElementById("hidDiv6").style.display = "none";
+			document.getElementById("hidDiv5").style.display = "block";
+		}*/
+		
+		if(id =='nameDiv2')
+		{
+			document.getElementById("nameDiv1").style.display = "block";
+			document.getElementById("nameDiv2").style.display = "block";
+		}  
+		  
+		if(id =='hidDiv6')
+		{
+			document.getElementById("btnPlaceOrder").disabled = true;
+		}
+		else {
+			document.getElementById("btnPlaceOrder").disabled = false;
+		}
 	  }					
 	
 	

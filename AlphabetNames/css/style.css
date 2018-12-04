@@ -939,7 +939,7 @@ display: block;
 
 .callbacks_tabs a {
 
-    visibility: hidden;
+    visibility:hidden;
 
     width: 20px;
 
@@ -972,7 +972,6 @@ display: block;
 }
 
 
-
 .banner1 {
 
     background: url(../images/banner1.jpg) center no-repeat;
@@ -988,8 +987,6 @@ display: block;
     background-size: cover;
 
 }
-
-
 
 .banner2 {
 
@@ -1007,8 +1004,6 @@ display: block;
 
 }
 
-
-
 .banner3 {
 
     background: url(../images/banner3.jpg) center no-repeat;
@@ -1024,8 +1019,6 @@ display: block;
     background-size: cover;
 
 }
-
-
 
 .banner4 {
 
@@ -1091,8 +1084,6 @@ display: block;
 
 }
 
-
-
 /*  
 
 .banner:before {
@@ -1156,8 +1147,6 @@ display: block;
     top: 14%;
 
     position: absolute;
-
-    
 
 }
 
@@ -1706,7 +1695,7 @@ form.register-wthree .form-control5 {
   position: relative;
   line-height: 2.5em;
   text-indent: 3.25em;
-  margin-top: 2em;
+  margin-top: 0.5em;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;

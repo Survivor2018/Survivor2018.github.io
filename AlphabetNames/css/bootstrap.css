@@ -39,7 +39,7 @@
 *::after {
   box-sizing: border-box;
 	text-align: justify;
-	padding-bottom: 1rem;
+	padding-bottom: 0rem;
 }
 
 html {
@@ -2098,7 +2098,7 @@ select.form-control-sm:not([size]):not([multiple]), .input-group-sm > select.for
 .input-group-lg > .input-group-append > .input-group-text,
 .input-group-lg > .input-group-prepend > .btn,
 .input-group-lg > .input-group-append > .btn {
-  padding: 0.5rem 1rem;
+  padding: 0rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
   border-radius: 0.3rem;
@@ -7487,7 +7487,7 @@ button.bg-dark:focus {
 
 .mt-3,
 .my-3 {
-  margin-top: 0rem !important;
+  margin-top: 1rem !important;
 }
 
 .mr-3,
@@ -7583,7 +7583,7 @@ button.bg-dark:focus {
 
 .pt-1,
 .py-1 {
-  padding-top: 0.25rem !important;
+  padding-top: 0.5rem !important;
 }
 
 .pr-1,

@@ -419,7 +419,7 @@
 
 									<input id="Cust_Name" class="form-control3" tabindex="1" type="text" placeholder=" Your Name" name="Customer_Name"><br><br>
 
-									<input id="Mobile_No" name="Mobile_No" type="number" tabindex="2" class="form-control3" placeholder=" Mobile No." maxlength="11" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
+									<input id="Mobile_No" name="Mobile_No" type="number" tabindex="2" class="form-control3" placeholder=" Mobile No." maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
 
 									<input id="Email_Addr" class="form-control3" tabindex="3" type="text" placeholder=" Email Address" name="Email_Addr"><br><br>
 								</div>
@@ -966,9 +966,16 @@
 			alert("Invalid Email!");
 			//validEntry=0;
 		}
+		else if(custMobile.length < 10){
+			alert("Please enter a valid  mobile number!");
+		}
+		else if(custPin.length < 6){
+			alert("Please enter a valid  Pincode!");
+		}
 		else if(radioChecked == 0){
 			alert("Please select number of names required!");
 		}
+		
 		/*else if (rad1.checked) {
 			var rad1txt=document.getElementById('1_Name');
 			if(rad1txt.value.length == 0){

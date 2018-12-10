@@ -117,7 +117,7 @@
 
                                 </label>
 
-                                <input class="form-control" type="text" placeholder=" Type Your Name" name="email" required="" id="myInput" oninput="myFunction();"><br><br>
+                                <input class="form-control" type="text" placeholder=" Type Your Name" name="email" required="" id="myInput"><br><br>
 
 								<div id="dvPreview"></div>
                             </div>
@@ -182,7 +182,241 @@
         </div>
 
     </section>
+		
+	<section class="why-sec py-lg-3" id="orderform">
 
+        <div class="container">
+
+            <div class="about-head">
+
+                <div>
+
+                    <span class="sub-line">Order Form</span>
+
+                </div>
+
+                <div class="contact-form">
+
+                	<form name="submit-to-google-sheet" class="register-wthree">
+						<input type="hidden" id="noNames" name="noNames">
+						<input type="hidden" id="cost" name="cost">
+						<input type="hidden" id="gDriveFldr" name="gDriveFldr">
+						<div class="form-group">
+
+							<div class="row">
+
+								<div class="col-6 col-sm-6 col-md-6">
+
+									<input id="Cust_Name" class="form-control3" tabindex="1" type="text" placeholder=" Your Name" name="Customer_Name"><br><br>
+
+									<input id="Mobile_No" name="Mobile_No" type="number" tabindex="2" class="form-control3" placeholder=" Mobile No." maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
+
+									<input id="Email_Addr" class="form-control3" tabindex="3" type="text" placeholder=" Email Address" name="Email_Addr"><br><br>
+								</div>
+								<div class="col-6 col-sm-6 col-md-6">
+									<input id="Cust_Addr" class="form-control3" tabindex="4" type="text" placeholder=" Address" name="Cust_Addr"><br><br>
+
+									<input id="Cust_Pincode" class="form-control3" tabindex="5" type="number" placeholder=" Pincode" name="Cust_Pincode" maxlength="6" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
+
+									<input id="Cust_Landmark" class="form-control3" tabindex="6" type="text" placeholder=" Landmark" name="Cust_Landmark"><br><br>
+
+								</div>
+
+							</div>
+
+							<label class="blk-txt">Select no. of names you would like to buy: </label>
+
+							<div class="row">
+
+								<div class="col-md-4">
+
+									<div class="funkyradio">
+										<div class="funkyradio-default">
+											<input type="radio" name="radio" id="radio1" tabindex="7" value="1" onClick="setNoNames(1,150); showDiv(1);"/>
+											<label for="radio1"><span class="offer-txt3">1 Name</span> at <span class="offer-txt2">Rs.150/-</span></label>
+										</div>
+										<div class="funkyradio-primary">
+											<input type="radio" name="radio" id="radio2" tabindex="8" value="2" onClick="setNoNames(2,130); showDiv(2);"/>
+											<label for="radio2"><span class="offer-txt3">2 Names</span> at <span class="offer-txt2">Rs.130/-</span><span class="offer-txt1"> each</span></label>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="funkyradio">
+										<div class="funkyradio-success">
+											<input type="radio" name="radio" id="radio3" tabindex="9" value="3" onClick="setNoNames(3,115); showDiv(3);"/>
+											<label for="radio3"><span class="offer-txt3">3 Names</span> at <span class="offer-txt2">Rs.115/-</span><span class="offer-txt1"> each</span></label>
+									</div>
+										<div class="funkyradio-danger">
+											<input type="radio" name="radio" id="radio4" tabindex="9" value="4" onClick="setNoNames(4,100); showDiv(4);"/>
+											<label for="radio4"><span class="offer-txt3">4 Names</span> at <span class="offer-txt2">Rs.100/-</span><span class="offer-txt1"> each</span></label>
+									</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="funkyradio">	
+										<div class="funkyradio-warning">
+											<input type="radio" name="radio" id="radio5" value="5" tabindex="10" onClick="showDiv('hidDiv5');"/>
+											<label for="radio5"><span class="offer-txt3">5-9 Names</span> at <span class="offer-txt2">Rs.90/-</span><span class="offer-txt1"> each</span></label>
+											<div id="hidDiv5" style="display: none;">
+												<select id="dd5_9" class="form-control" name="dd5_9" onChange="setNoNames(document.getElementById('dd5_9').value,90);showDiv(document.getElementById('dd5_9').value);">
+													<option value="Select">Select No. of Names</option>
+													<option value="5">5</option>
+													<option value="6">6</option>
+													<option value="7">7</option>
+													<option value="8">8</option>
+													<option value="9">9</option>
+												</select>	
+												<!--<button id="btnUpload1" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" disabled>Upload File</button>-->	
+											</div>
+										</div>
+										<div class="funkyradio-info">
+											<input type="radio" name="radio" id="radio6" value="6" tabindex="11" onClick="showDiv('hidDiv6')"/>
+											<label for="radio6"><span class="offer-txt3">10+ Names</span> at <span class="offer-txt2">Rs.80/-</span><span class="offer-txt1"> each</span></label>
+											<div id="hidDiv6" style="display: none;">
+												<select id="dd10_100" class="dd10_100 form-control" name="dd10_100" onChange="val('dd10_100',80,'btnUpload2');">
+												</select>
+												<br />
+												<button id="btnUpload2" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" disabled>Upload File</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="lblNames" style="display: none;">
+								<label class="blk-txt">Enter Names: </label>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<div id="nameDiv1" style="display: none;">
+										<input id="Name_1" class="form-control" autofocus type="text" tabindex="12" placeholder="Type Name 1" name="Name_1">
+									</div>
+									<div id="nameDiv2" style="display: none;">
+										<input id="Name_2" class="form-control" type="text" tabindex="13" placeholder="Type Name 2" name="Name_2">
+									</div>
+									<div id="nameDiv3" style="display: none;">
+										<input id="Name_3" class="form-control" type="text" tabindex="14" placeholder="Type Name 3" name="Name_3">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div id="nameDiv4" style="display: none;">
+										<input id="Name_4" class="form-control" type="text" tabindex="15" placeholder="Type Name 4" name="Name_4">
+									</div>
+									<div id="nameDiv5" style="display: none;">
+										<input id="Name_5" class="form-control" type="text" tabindex="16" placeholder="Type Name 5" name="Name_5">
+									</div>
+									<div id="nameDiv6" style="display: none;">
+										<input id="Name_6" class="form-control" type="text" tabindex="17" placeholder="Type Name 6" name="Name_6">
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div id="nameDiv7" style="display: none;">
+										<input id="Name_7" class="form-control" type="text" tabindex="18" placeholder="Type Name 7" name="Name_7">
+									</div>
+									<div id="nameDiv8" style="display: none;">
+										<input id="Name_8" class="form-control" type="text" tabindex="19" placeholder="Type Name 8" name="Name_8">
+									</div>
+									<div id="nameDiv9" style="display: none;">
+										<input id="Name_9" class="form-control" type="text" tabindex="20" placeholder="Type Name 9" name="Name_9">
+									</div>
+								</div>	
+							</div>
+							
+							<input id= "btnReset" type="reset" value="Reset" style="visibility: hidden;">
+
+							<button type="submit" id="submit-form" data-toggle="modal" data-target="#ordSummary" style="margin-top: 1rem; visibility:hidden;"></button>
+
+						</div>
+						<div style="display: flex;justify-content: center;">
+								<button type="button" id="btnPlaceOrder" class="btn btn-info btn-sm" tabindex="21" onClick="chk()">Place Order</button>
+						</div>
+                	</form>
+					
+					<div id="ordSummary" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+					<div class="modal-content">
+						<!--<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" onClick="refreshPage()">&times;</button>
+						</div>-->
+						<div class="modal-body">
+						  	<label class="blk-txt">Delivery Charges will be Rs 20 per Name.</label><br /><br />
+							<div class="row">	
+						  		<div class="col-6 col-sm-6 col-md-6">
+									  <h3 class="form-control">No. of Names : </h3>
+						  		</div>
+								<div class="col-6 col-sm-6 col-md-6">
+									  <h3 id="numNames" class="form-control">0.00</h3>
+						  		</div>
+							</div>
+							<div class="row">	
+						  		<div class="col-6 col-sm-6 col-md-6">
+									  <h3 class="form-control">Cost / Name : </h3>
+						  		</div>
+								<div class="col-6 col-sm-6 col-md-6">
+									  <h3 id="cstName" class="form-control">0.00</h3>
+						  		</div>
+							</div>
+							<br />
+							<div class="row">	
+						  		<div class="col-6 col-sm-6 col-md-6">
+									<h3 class="form-control">Sub-Total : </h3>									   
+						  		</div>
+								<div class="col-6 col-sm-6 col-md-6">
+									<h3 id="value" class="form-control">0.00</h3>
+						  		</div>
+							</div>
+							<div class="row">	
+						  		<div class="col-6 col-sm-6 col-md-6">
+									  <h3 class="form-control">Delivery Charges : </h3>
+						  		</div>
+								<div class="col-6 col-sm-6 col-md-6">
+									  <h3 id="delPrice" class="form-control">0.00</h3>	
+						  		</div>
+							</div>
+							<br />
+							<div class="row">	
+						  		<div class="col-6 col-sm-6 col-md-6">
+									  <h3 class="form-control">Total : </h3> 
+						  		</div>
+								<div class="col-6 col-sm-6 col-md-6">
+									  <h3 id="price" class="form-control">0.00</h3>
+						  		</div>
+							</div>
+						<div class="modal-footer">
+							<button type="button" id="submit" onClick="alert('Payment Successful!');refreshPage();" class="btn btn-info" style="margin-top: 1rem;" data-dismiss="modal" > Proceed to Pay </button>
+						</div>
+					</div>
+				</div>
+					</div>
+					</div>
+					
+					<div id="myModal" class="modal fade" role="dialog">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<!--<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">&times;</button>
+								</div>-->
+								<div class="modal-body">
+									
+									<iframe id="iFrmfileUpload" src="https://script.google.com/macros/s/AKfycbwuHuj-FUyvgikfkjodnAqcNK1AgsRqMGdNw-hHT_fWpzrsBuFX/exec?name=Default" frameborder="0" width="400px" height="300"></iframe>
+
+								</div>
+
+								<div class="modal-footer">
+
+										<button type="button" id="btnModalOrder" class="btn btn-sm btn-info" onClick="chk()" data-dismiss="modal">Place Order</button>
+
+								</div>
+							</div>
+						</div>
+					</div>	
+				</div>
+					
+            </div>
+				
+		</div>
+
+    </section>
 
     <section class="w3_pvt_stats" id="askseller">
 
@@ -393,247 +627,7 @@
     </section>
 
 
-    <section class="why-sec py-lg-3" id="orderform">
-
-        <div class="container">
-
-            <div class="about-head">
-
-                <div>
-
-                    <span class="sub-line">Order Form</span>
-
-                </div>
-
-                <div class="contact-form">
-
-                	<form name="submit-to-google-sheet" class="register-wthree">
-						<input type="hidden" id="noNames" name="noNames">
-						<input type="hidden" id="cost" name="cost">
-						<input type="hidden" id="gDriveFldr" name="gDriveFldr">
-						<div class="form-group">
-
-							<div class="row">
-
-								<div class="col-md-6">
-
-									<input id="Cust_Name" class="form-control3" tabindex="1" type="text" placeholder=" Your Name" name="Customer_Name"><br><br>
-
-									<input id="Mobile_No" name="Mobile_No" type="number" tabindex="2" class="form-control3" placeholder=" Mobile No." maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
-
-									<input id="Email_Addr" class="form-control3" tabindex="3" type="text" placeholder=" Email Address" name="Email_Addr"><br><br>
-								</div>
-								<div class="col-md-6">
-									<input id="Cust_Addr" class="form-control3" tabindex="4" type="text" placeholder=" Shipping Address" name="Cust_Addr"><br><br>
-
-									<input id="Cust_Pincode" class="form-control3" tabindex="5" type="number" placeholder=" Pincode" name="Cust_Pincode" maxlength="6" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"><br><br>
-
-									<input id="Cust_Landmark" class="form-control3" tabindex="6" type="text" placeholder=" Landmark" name="Cust_Landmark"><br><br>
-
-								</div>
-
-							</div>
-
-							<label class="blk-txt">Select no. of names you would like to buy: </label>
-
-							<div class="row">
-
-								<div class="col-md-4">
-
-									<div class="funkyradio">
-										<div class="funkyradio-default">
-											<input type="radio" name="radio" id="radio1" tabindex="7" value="1" onClick="setNoNames(1,150); showDiv(1);"/>
-											<label for="radio1"><span class="offer-txt3">1 Name</span> at <span class="offer-txt2">Rs.150/-</span></label>
-											<!--<div id="hidDiv1" style="display: none;">
-												<input id="1_Name" class="form-control" type="text" placeholder="Type Your Name" name="Name_1">
-											</div>-->
-										</div>
-										<div class="funkyradio-primary">
-											<input type="radio" name="radio" id="radio2" tabindex="8" value="2" onClick="setNoNames(2,130); showDiv(2);"/>
-											<label for="radio2"><span class="offer-txt3">2 Names</span> at <span class="offer-txt2">Rs.130/-</span><span class="offer-txt1"> each</span></label>
-											<!--<div id="hidDiv2" style="display: none;">
-												<input id="2_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="Name_1">
-												<input id="2_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="Name_2">
-											</div>-->
-										</div>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="funkyradio">
-										<div class="funkyradio-success">
-											<input type="radio" name="radio" id="radio3" tabindex="9" value="3" onClick="setNoNames(3,115); showDiv(3);"/>
-											<label for="radio3"><span class="offer-txt3">3 Names</span> at <span class="offer-txt2">Rs.115/-</span><span class="offer-txt1"> each</span></label>
-											<!--<div id="hidDiv3" style="display: none;">
-												<input id="3_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="Name_1">
-												<input id="3_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="Name_2">
-												<input id="3_Name_3" class="form-control" type="text" placeholder="Type Your Name" name="Name_3">
-											</div>-->
-									</div>
-										<div class="funkyradio-danger">
-											<input type="radio" name="radio" id="radio4" tabindex="9" value="4" onClick="setNoNames(4,100); showDiv(4);"/>
-											<label for="radio4"><span class="offer-txt3">4 Names</span> at <span class="offer-txt2">Rs.100/-</span><span class="offer-txt1"> each</span></label>
-											<!--<div id="hidDiv4" style="display: none;">
-												<input id="4_Name_1" class="form-control" type="text" placeholder="Type Your Name" name="Name_1">
-												<input id="4_Name_2" class="form-control" type="text" placeholder="Type Your Name" name="Name_2">
-												<input id="4_Name_3" class="form-control" type="text" placeholder="Type Your Name" name="Name_3">
-												<input id="4_Name_4" class="form-control" type="text" placeholder="Type Your Name" name="Name_4">
-											</div>-->
-									</div>
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div class="funkyradio">	
-										<div class="funkyradio-warning">
-											<input type="radio" name="radio" id="radio5" value="5" tabindex="10" onClick="showDiv('hidDiv5');"/>
-											<label for="radio5"><span class="offer-txt3">5 to 9 Names</span> at <span class="offer-txt2">Rs.90/-</span><span class="offer-txt1"> each</span></label>
-											<div id="hidDiv5" style="display: none;">
-												<select id="dd5_9" class="form-control" name="dd5_9" onChange="setNoNames(document.getElementById('dd5_9').value,90);showDiv(document.getElementById('dd5_9').value);">
-													<option value="Select">Select No. of Names</option>
-													<option value="5">5</option>
-													<option value="6">6</option>
-													<option value="7">7</option>
-													<option value="8">8</option>
-													<option value="9">9</option>
-												</select>	
-												<!--<button id="btnUpload1" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" disabled>Upload File</button>-->	
-											</div>
-										</div>
-										<div class="funkyradio-info">
-											<input type="radio" name="radio" id="radio6" value="6" tabindex="11" onClick="showDiv('hidDiv6')"/>
-											<label for="radio6"><span class="offer-txt3">10+ Names</span> at <span class="offer-txt2">Rs.80/-</span><span class="offer-txt1"> each</span></label>
-											<div id="hidDiv6" style="display: none;">
-												<select id="dd10_100" class="dd10_100 form-control" name="dd10_100" onChange="val('dd10_100',80,'btnUpload2');">
-												</select>
-												<br />
-												<button id="btnUpload2" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal" disabled>Upload File</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-md-4">
-									<div id="nameDiv1" style="display: none;">
-										<input id="Name_1" class="form-control" autofocus type="text" tabindex="12" placeholder="Type Name 1" name="Name_1">
-									</div>
-									<div id="nameDiv2" style="display: none;">
-										<input id="Name_2" class="form-control" type="text" tabindex="13" placeholder="Type Name 2" name="Name_2">
-									</div>
-									<div id="nameDiv3" style="display: none;">
-										<input id="Name_3" class="form-control" type="text" tabindex="14" placeholder="Type Name 3" name="Name_3">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div id="nameDiv4" style="display: none;">
-										<input id="Name_4" class="form-control" type="text" tabindex="15" placeholder="Type Name 4" name="Name_4">
-									</div>
-									<div id="nameDiv5" style="display: none;">
-										<input id="Name_5" class="form-control" type="text" tabindex="16" placeholder="Type Name 5" name="Name_5">
-									</div>
-									<div id="nameDiv6" style="display: none;">
-										<input id="Name_6" class="form-control" type="text" tabindex="17" placeholder="Type Name 6" name="Name_6">
-									</div>
-								</div>
-								<div class="col-md-4">
-									<div id="nameDiv7" style="display: none;">
-										<input id="Name_7" class="form-control" type="text" tabindex="18" placeholder="Type Name 7" name="Name_7">
-									</div>
-									<div id="nameDiv8" style="display: none;">
-										<input id="Name_8" class="form-control" type="text" tabindex="19" placeholder="Type Name 8" name="Name_8">
-									</div>
-									<div id="nameDiv9" style="display: none;">
-										<input id="Name_9" class="form-control" type="text" tabindex="20" placeholder="Type Name 9" name="Name_9">
-									</div>
-								</div>	
-							</div>
-							
-							<input id= "btnReset" type="reset" value="Reset" style="visibility: hidden;">
-
-							<button type="submit" id="submit-form" data-toggle="modal" data-target="#ordSummary" style="margin-top: 1rem; visibility:hidden;"></button>
-
-						</div>
-						<div style="display: flex;justify-content: center;">
-								<button type="button" id="btnPlaceOrder" class="btn btn-info btn-sm" tabindex="21" onClick="chk()">Place Order</button>
-						</div>
-                	</form>
-					
-					<div id="ordSummary" class="modal fade" role="dialog">
-						<div class="modal-dialog">
-					<div class="modal-content">
-						<!--<div class="modal-header">
-							<button type="button" class="close" data-dismiss="modal" onClick="refreshPage()">&times;</button>
-						</div>-->
-						<div class="modal-body">
-
-							<div class="row">
-
-						  <label class="blk-txt">Delivery Charges will be Rs 20 per Name.</label><br /><br />
-						  <div class="col-md-6">
-
-							  <h3 class="form-control">No. of Names : </h3>
-
-							  <h3 class="form-control">Cost / Name : </h3>
-							  <br />
-
-							  <h3 class="form-control">Sub-Total : </h3>
-
-							  <h3 class="form-control">Delivery Charges : </h3>
-							  <br />
-
-							  <h3 class="form-control">Total : </h3> 
-						  </div>
-						  <div class="col-md-6">
-
-							  <h3 id="numNames" class="form-control">0.00</h3>
-
-							  <h3 id="cstName" class="form-control">0.00</h3>
-							  <br />
-
-							  <h3 id="value" class="form-control">0.00</h3>
-
-							  <h3 id="delPrice" class="form-control">0.00</h3>
-							  <br />
-
-							  <h3 id="price" class="form-control">0.00</h3>
-
-						  </div>
-						</div>
-
-						</div>
-						<div class="modal-footer">
-							<button type="button" id="submit" onClick="alert('Payment Successful!');refreshPage();" class="btn btn-info" style="margin-top: 1rem;" data-dismiss="modal" > Proceed to Pay </button>
-						</div>
-					</div>
-				</div>
-					</div>
-					
-					<div id="myModal" class="modal fade" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<!--<div class="modal-header">
-									<button type="button" class="close" data-dismiss="modal">&times;</button>
-								</div>-->
-								<div class="modal-body">
-
-									<iframe id="iFrmfileUpload" src="https://script.google.com/macros/s/AKfycbwuHuj-FUyvgikfkjodnAqcNK1AgsRqMGdNw-hHT_fWpzrsBuFX/exec?name=Default" frameborder="0" width="400px" height="300"></iframe>
-
-								</div>
-
-								<div class="modal-footer">
-
-										<button type="button" id="btnModalOrder" class="btn btn-sm btn-info" onClick="chk()" data-dismiss="modal">Place Order</button>
-
-								</div>
-							</div>
-						</div>
-					</div>	
-				</div>
-					
-            </div>
-				
-		</div>
-
-    </section>
+    
 	
 
     <div class="testimonials-wthree py-lg-5 py-4 text-center" id="testimonials">
@@ -904,6 +898,10 @@
 	
 	
 	<script>
+		
+		
+		
+		
 	// sends file to google script to write form values to google sheet
 		
 	  const scriptURL = 'https://script.google.com/macros/s/AKfycbwITY4UPwOxFjGmKzmF7M2q7fn-mst92CKYF7FUhyaGn1R0oK1D/exec'
@@ -1019,7 +1017,7 @@
 		
 	//preview names	
 	
-	document.getElementById("myInput").onkeydown = chkEvent  
+	/*document.getElementById("myInput").onkeydown = chkEvent  
 	//var formInUse = false;
 	function chkEvent(e) 
 	{
@@ -1033,7 +1031,7 @@
 		else
 			return false;
 
-	}	
+	}*/	
 		
 	
 	/*document.getElementById("Mobile_No").onkeydown = chkNoInput;
@@ -1053,7 +1051,23 @@
 
 	}		*/
 	
+		
+	$(document).ready(function() {
+		  $("#myInput").keyup(validate);
+		});
 
+	function validate(e) {
+
+	  var regex = new RegExp("[^a-zA-Z ]","g");
+	  var string = this.value;
+
+	  var match = string.match(regex);
+	  if (match) {
+		this.value = this.value.replace(regex, '');
+	  }
+		else myFunction();
+	}
+		
 	function myFunction() 
 	{
 		document.getElementById("dvPreview").innerHTML="";
@@ -1066,6 +1080,29 @@
 			if(x[i]=='A' || x[i]=='a'){images.push("images/A.png");}
 			else if(x[i]=='B' || x[i]=='b'){images.push("images/B.png");}
 			else if(x[i]=='C' || x[i]=='c'){images.push("images/C.png");}
+			else if(x[i]=='D' || x[i]=='d'){images.push("images/D.png");}
+			else if(x[i]=='E' || x[i]=='e'){images.push("images/E.png");}
+			else if(x[i]=='F' || x[i]=='f'){images.push("images/F.png");}
+			else if(x[i]=='G' || x[i]=='g'){images.push("images/G.png");}
+			else if(x[i]=='H' || x[i]=='h'){images.push("images/H.png");}
+			else if(x[i]=='I' || x[i]=='i'){images.push("images/A.png");}
+			else if(x[i]=='J' || x[i]=='j'){images.push("images/J.png");}
+			else if(x[i]=='K' || x[i]=='k'){images.push("images/K.png");}
+			else if(x[i]=='L' || x[i]=='l'){images.push("images/L.png");}
+			else if(x[i]=='M' || x[i]=='m'){images.push("images/M.png");}
+			else if(x[i]=='N' || x[i]=='n'){images.push("images/N.png");}
+			else if(x[i]=='O' || x[i]=='o'){images.push("images/O.png");}
+			else if(x[i]=='P' || x[i]=='p'){images.push("images/P.png");}
+			else if(x[i]=='Q' || x[i]=='q'){images.push("images/A.png");}
+			else if(x[i]=='R' || x[i]=='r'){images.push("images/R.png");}
+			else if(x[i]=='S' || x[i]=='s'){images.push("images/S.png");}
+			else if(x[i]=='T' || x[i]=='t'){images.push("images/T.png");}
+			else if(x[i]=='U' || x[i]=='u'){images.push("images/U.png");}
+			else if(x[i]=='V' || x[i]=='v'){images.push("images/A.png");}
+			else if(x[i]=='W' || x[i]=='w'){images.push("images/W.png");}
+			else if(x[i]=='X' || x[i]=='x'){images.push("images/A.png");}
+			else if(x[i]=='Y' || x[i]=='y'){images.push("images/Y.png");}
+			else if(x[i]=='Z' || x[i]=='z'){images.push("images/Z.png");}
 			else if(x[i]==' '){images.push("images/Empty.png");}
 			else {document.getElementById("error").innerHTML="Enter Valid Char!"}
 		}
@@ -1162,8 +1199,7 @@
 	// shows/hides order div's on radio button click
 		
 		function clearText(){
-		//alert("in Clear");
-		var ids = ['Name_1','Name_2','Name_3','Name_4','Name_5','Name_6','Name_7','Name_8','Name_9'];
+		var ids = ['Name_1','Name_2','Name_3','Name_4','Name_5','Name_6','Name_7','Name_8','Name_9','gDriveFldr'];
 		
 		var i;
 		for(i=0;i<ids.length;i++)
@@ -1178,6 +1214,7 @@
 		clearText();  
 		
 		if(id == 1){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "none";
 			document.getElementById("nameDiv3").style.display = "none";
@@ -1194,6 +1231,7 @@
 			document.getElementById("Name_1").focus();
 		} 
 		else if (id == 2){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "block";
 			document.getElementById("nameDiv3").style.display = "none";
@@ -1210,6 +1248,7 @@
 			document.getElementById("Name_1").focus();
 		}
 		else if (id == 3){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "block";
 			document.getElementById("nameDiv3").style.display = "block";
@@ -1226,6 +1265,7 @@
 			document.getElementById("Name_1").focus();
 		}
 		else if (id == 4){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "block";
 			document.getElementById("nameDiv3").style.display = "block";
@@ -1242,6 +1282,7 @@
 			document.getElementById("Name_1").focus();
 		}  
 		else if (id == 5){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "block";
 			document.getElementById("nameDiv3").style.display = "block";
@@ -1258,6 +1299,7 @@
 			document.getElementById("Name_1").focus();
 		}
 		else if (id == 6){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "block";
 			document.getElementById("nameDiv3").style.display = "block";
@@ -1274,6 +1316,7 @@
 			document.getElementById("Name_1").focus();
 		}  
 		else if (id == 7){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "block";
 			document.getElementById("nameDiv3").style.display = "block";
@@ -1290,6 +1333,7 @@
 			document.getElementById("Name_1").focus();
 		}
 		else if (id == 8){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "block";
 			document.getElementById("nameDiv3").style.display = "block";
@@ -1306,6 +1350,7 @@
 			document.getElementById("Name_1").focus();
 		}
 		else if (id == 9){
+			document.getElementById("lblNames").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "block";
 			document.getElementById("nameDiv2").style.display = "block";
 			document.getElementById("nameDiv3").style.display = "block";
@@ -1322,6 +1367,7 @@
 			document.getElementById("Name_1").focus();
 		}
 		else if (id =='hidDiv5'){
+			document.getElementById("lblNames").style.display = "none";
 			document.getElementById("hidDiv5").style.display = "block";
 			document.getElementById("hidDiv6").style.display = "none";
 			document.getElementById("nameDiv1").style.display = "none";
@@ -1337,6 +1383,7 @@
 			document.getElementById("dd5_9").focus();
 		}
 		else if (id =='hidDiv6'){
+			document.getElementById("lblNames").style.display = "none";
 			document.getElementById("hidDiv5").style.display = "none";
 			document.getElementById("hidDiv6").style.display = "block";
 			document.getElementById("nameDiv1").style.display = "none";
@@ -1352,6 +1399,7 @@
 			document.getElementById("dd10_100").focus();
 		}
 		else{
+			document.getElementById("lblNames").style.display = "none";
 			document.getElementById("hidDiv5").style.display = "none";
 			document.getElementById("hidDiv6").style.display = "none";
 			document.getElementById("nameDiv1").style.display = "none";

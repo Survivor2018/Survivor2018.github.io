@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+	
+	<input id="letnd" type="text" name="txtnd" />
+	<input id="letnb" type="text" name="txtnb" />
+	<form action="#" method="post" class="register-wthree">
+
+                    <div class="form-group">
+
+                        <div class="row">
+
+                            <div class="col-md-12">
+
+                                <label class="text-white">
+
+                                </label>
+
+                                <input class="form-control" type="text" placeholder=" Type Your Name" name="email" required="" id="myInput"><br><br>
+
+								<div id="dvPreview"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+					<p>(Approximate size of the alphabet is 3" height X 3" width)</p>
+
+                </form>
+	<script>
+		$(document).ready(function() {
+		  $("#myInput").keyup(validate);
+		});
+
+		function validate(e) {
+
+		  var regex = new RegExp("[^a-zA-Z ]","g");
+		  var string = this.value;
+
+		  var match = string.match(regex);
+		  if (match) {
+			this.value = this.value.replace(regex, '');
+		  }
+			else myFunction();
+		}
+		
+		function myFunction() 
+	{
+		document.getElementById("dvPreview").innerHTML="";
+		var images = [];
+		var x = document.getElementById("myInput").value;
+
+		var i;
+		for(i=0; i<x.length; i++)
+		{
+			if(x[i]=='A' || x[i]=='a'){images.push("images/A.png");}
+			else if(x[i]=='B' || x[i]=='b'){images.push("images/B.png");}
+			else if(x[i]=='C' || x[i]=='c'){images.push("images/C.png");}
+			else if(x[i]==' '){images.push("images/Empty.png");}
+			else {document.getElementById("error").innerHTML="Enter Valid Char!"}
+		}
+
+		display(images)
+	}
+
+	function display(images)
+	{
+		var dvPreview = document.getElementById("dvPreview");
+		dvPreview.innerHTML = "";
+
+		for (var i = 0; i < images.length; i++)
+		{         
+			
+			if (images[i] == "images/Empty.png"){
+				dvPreview.innerHTML += "<pre>" + "\n" +"</pre>";
+			}
+			else{
+				var img = document.createElement("IMG");
+				img.height = "50";
+				//img.width = auto;
+				img.src = images[i];
+				dvPreview.appendChild(img);
+			}
+		}
+	}
+	</script>
+</body>
+	
+</html>
